@@ -1,4 +1,4 @@
-# 🥛 IngeLac - Soluciones industriales 5.0
+# 🥛 IntegraMotion - Soluciones industriales 5.0
 
 ## 1. Descripción general
 
