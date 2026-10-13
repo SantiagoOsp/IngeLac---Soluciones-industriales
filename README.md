@@ -36,59 +36,48 @@ La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance com
 
 ```mermaid
 flowchart TD
-    P["1. Proyecto de automatización<br/>Lácteos Fúquene"]
+    P["Consultora de Ingeniería IntegraMotion<br/>25.000 L/día"]
 
-    P --> A["1.1 Gestión del proyecto"]
-    P --> B["1.2 Ingeniería del proceso"]
-    P --> C["1.3 Automatización y control"]
-    P --> D["1.4 Transformación digital"]
-    P --> E["1.5 Simulación y distribución"]
-    P --> F["1.6 Integración y validación"]
-    P --> G["1.7 Documentación y entrega"]
+    P --> A["1. Gestión<br/>del proyecto"]
+    P --> B["2. Ingeniería<br/>de proceso"]
+    P --> C["3. Automatización<br/>y control"]
+    P --> D["4. Robótica<br/>y simulación"]
+    P --> E["5. MES<br/>y ERP"]
+    P --> F["6. Finanzas<br/>y oferta"]
 
-    A --> A1["1.1.1 Definición del alcance"]
-    A --> A2["1.1.2 Cronograma"]
-    A --> A3["1.1.3 Presupuesto y riesgos"]
-    A --> A4["1.1.4 Seguimiento del proyecto"]
+    A --> A1["1.1 Inicio<br/>y planeación"]
+    A --> A2["1.2 Seguimiento<br/>y compuertas"]
+    A --> A3["1.3 Informe final<br/>y sustentación"]
 
-    B --> B1["1.2.1 Caracterización de productos"]
-    B --> B2["1.2.2 Balance de materiales"]
-    B --> B3["1.2.3 Diseño del proceso de quesos"]
-    B --> B4["1.2.4 Selección de equipos"]
+    B --> B1["2.1 Análisis<br/>del problema"]
+    B --> B2["2.2 EDT de la<br/>producción"]
+    B --> B3["2.3 VSM de<br/>las líneas"]
+    B --> B4["2.4 Medidas<br/>organizacionales"]
+    B --> B5["2.5 Arquitectura<br/>ISA-95"]
 
-    C --> C1["1.3.1 Instrumentación"]
-    C --> C2["1.3.2 Modelo ISA-88"]
-    C --> C3["1.3.3 Grafcet y programación PLC"]
-    C --> C4["1.3.4 Interbloqueos y alarmas"]
+    C --> C1["3.1 Instrumentación"]
+    C --> C2["3.2 PLC<br/>e ISA-88"]
+    C --> C3["3.3 SCADA"]
 
-    D --> D1["1.4.1 Arquitectura ISA-95"]
-    D --> D2["1.4.2 Diseño SCADA"]
-    D --> D3["1.4.3 Integración MES–ERP"]
-    D --> D4["1.4.4 Trazabilidad de lotes"]
+    D --> D1["4.1 Plant Simulation"]
+    D --> D2["4.2 RobotStudio"]
+    D --> D3["4.3 NX MCD"]
 
-    E --> E1["1.5.1 Diseño del layout"]
-    E --> E2["1.5.2 Modelo en Tecnomatix"]
-    E --> E3["1.5.3 Simulación del flujo"]
-    E --> E4["1.5.4 Evaluación de capacidad"]
+    E --> E1["5.1 Implementación<br/>MES"]
+    E --> E2["5.2 Implementación<br/>ERP"]
+    E --> E3["5.3 Integración<br/>y comunicación"]
 
-    F --> F1["1.6.1 Integración PLC–SCADA"]
-    F --> F2["1.6.2 Gemelo digital"]
-    F --> F3["1.6.3 Pruebas funcionales"]
-    F --> F4["1.6.4 Validación de resultados"]
+    F --> F1["6.1 Modelo financiero<br/>y oferta"]
+    F --> F2["6.2 Financiación"]
 
-    G --> G1["1.7.1 Informe técnico"]
-    G --> G2["1.7.2 Planos y diagramas"]
-    G --> G3["1.7.3 Presentación final"]
-    G --> G4["1.7.4 Entrega del proyecto"]
+    classDef principal fill:#08045f,stroke:#08045f,color:#ffffff,stroke-width:2px;
+    classDef nivelUno fill:#eeeeff,stroke:#6666cc,color:#17172f,stroke-width:1px;
+    classDef paquete fill:#ffffff,stroke:#7777cc,color:#202020,stroke-width:1px;
 
-    classDef principal fill:#17365d,stroke:#0b1f36,color:#fff;
-    classDef entregable fill:#d9eaf7,stroke:#3979a8,color:#102a43;
-    classDef paquete fill:#eef5ea,stroke:#5f8c52,color:#20351b;
     class P principal;
-    class A,B,C,D,E,F,G entregable;
-    class A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4,D1,D2,D3,D4,E1,E2,E3,E4,F1,F2,F3,F4,G1,G2,G3,G4 paquete;
+    class A,B,C,D,E,F nivelUno;
+    class A1,A2,A3,B1,B2,B3,B4,B5,C1,C2,C3,D1,D2,D3,E1,E2,E3,F1,F2 paquete;
 ```
-
 ## 3. Objetivos de Transformación Digital Industrial
 
 ### Objetivo general
