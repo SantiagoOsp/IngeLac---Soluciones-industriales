@@ -30,7 +30,7 @@ El desarrollo detallado de recetas, control y gemelo digital se concentra en la 
 La propuesta vincula órdenes, lotes, materiales, condiciones de fabricación y resultados de calidad mediante una arquitectura OT/IT. Las cantidades, capacidades y parámetros de este documento corresponden al **escenario de diseño**; los resultados de ejecución se registran por separado.
 
 
-## 3. Objetivos de Transformación Digital Industrial
+## 2. Objetivos de Transformación Digital Industrial
 
 ### Objetivo general
 
@@ -46,7 +46,7 @@ Diseñar la arquitectura de automatización e información de la planta, aplican
 - Definir interfaces y registros de órdenes, consumos, calidad y trazabilidad.
 - Establecer una base común de equipos, estaciones y parámetros para control y gemelo digital de quesos.
 
-## 2. EDT del Proyecto
+## 3. EDT del Proyecto
 
   ### Objetivo general
 La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance comprende desde la planeación inicial hasta la integración y validación de la solución propuesta.
