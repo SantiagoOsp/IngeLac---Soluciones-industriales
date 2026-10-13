@@ -55,7 +55,7 @@ La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance com
 flowchart TD
     P["Consultora de Ingeniería IntegraMotion<br/>25.000 L/día"]
 
-    P --> A["1. Gestión<br/>del proyecto"]se
+    P --> A["1. Gestión<br/>del proyecto"]
     P --> B["2. Ingeniería<br/>de proceso"]
     P --> C["3. Automatización<br/>y control"]
     P --> D["4. Robótica<br/>y simulación"]
