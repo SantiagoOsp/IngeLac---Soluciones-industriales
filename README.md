@@ -418,25 +418,3 @@ flowchart LR
 | SCADA | Ignition, operación y supervisión, alarmas, tendencias y comunicación OPC. |
 | Celda robotizada | Paletizado previsto en E20, flujo de cajas y coordinación con producción. |
 | Planeación y evaluación de proyectos | Equipos y recursos de la propuesta como base de cronograma y evaluación económica. |
-
-Este README documenta la arquitectura TDI. Los resultados, archivos de simulación, programación y evaluación económica se presentan en las evidencias de sus módulos.
-
-## 10. Equipo de IntegraMotion
-## 10. Documentación de apoyo
-
-| Integrante | Cargo | Responsabilidad indicada en la presentación del equipo |
-|---|---|---|
-| Santiago Ospina | CEO | Identidad empresarial y transformación digital. |
-| Marco Morales | CTO | Transformación digital ISA-88/ISA-95 y edición. |
-| Dixon Cuesta | CFO | Identidad empresarial y transformación digital. |
-| Yesid Ojeda | COO | Simulación Tecnomatix y diseño de layout. |
-| Juan Andres Moreno | CDO | Identidad empresarial y transformación digital. |
-| Carlos Guzmán | CCO | EDT del proyecto y estructuración de la información. |
-
-## 11. Documentación de apoyo
-
-- [Documento técnico TDI en LaTeX](docs/tdi/Transformacion_Digital_Industrial.tex).
-- Diagramas funcionales editables: bloques Mermaid de este README.
-- Planos de referencia: carpeta `docs/tdi/imagenes/`.
-
-La página web presenta la propuesta, los modelos y las evidencias del proyecto. Su función como portal de documentación se diferencia de las funciones de control, supervisión y gestión de lotes.
