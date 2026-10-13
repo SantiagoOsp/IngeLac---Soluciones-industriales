@@ -49,7 +49,7 @@ Diseñar la arquitectura de automatización e información de la planta, aplican
 ## 3. EDT del Proyecto
 
   ### Objetivo general
-La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance comprende desde la planeación inicial hasta la integración y validación de la solución propuesta.
+La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance comprende desde la planeación inicial hasta la integración y validación de la solución propuesta. Estos objetivos se realizan de forma parcialmente paralela, en un periodo de 16 semanas.
 
 ```mermaid
 flowchart TD
@@ -95,6 +95,55 @@ flowchart TD
     class A,B,C,D,E,F nivelUno;
     class A1,A2,A3,B1,B2,B3,B4,B5,C1,C2,C3,D1,D2,D3,E1,E2,E3,F1,F2 paquete;
 ```
+
+### 3.1 Desglose de tiempos
+A continuación se presentan los tiempos estimados para cada etapa del proyecto:
+
+#### Gestión del proyecto
+| Código | Actividad | Duración | Objetivo |
+|---|---|---:|---|
+| 1.1 | Inicio y planeación | 2 semanas | Definir y aprobar el alcance, los requisitos, las responsabilidades y la EDT inicial del proyecto. |
+| 1.2 | Seguimiento y compuertas | 16 semanas | Controlar el avance, los riesgos, los cambios y las decisiones mediante reuniones periódicas y revisiones de los hitos. |
+| 1.3 | Informe final y sustentación | 2 semanas | Integrar los resultados de todos los frentes, preparar los anexos y presentar la sustentación final de la consultoría. |
+
+#### Ingeniería de proceso
+| Código | Actividad | Duración | Objetivo |
+|---|---|---:|---|
+| 2.1 | Análisis del problema | 2 semanas | Diagnosticar la situación actual de la planta e identificar la demanda, las capacidades, las restricciones y los criterios de diseño. |
+| 2.2 | EDT de la producción | 3 semanas | Desglosar el proceso productivo en operaciones, equipos, recetas, secuencias y parámetros controlables. |
+| 2.3 | VSM de las líneas | 3 semanas | Analizar los flujos de materiales e información para identificar desperdicios, tiempos de espera y oportunidades de mejora. |
+| 2.4 | Medidas organizacionales | 2 semanas | Definir los roles, los turnos, las competencias y los procedimientos necesarios para implementar las mejoras propuestas. |
+| 2.5 | Arquitectura ISA-95 | 3 semanas | Diseñar la arquitectura y los flujos de información entre los niveles operativos y los sistemas empresariales. |
+
+#### Automatización y control
+| Código | Actividad | Duración | Objetivo |
+|---|---|---:|---|
+| 3.1 | Instrumentación | 3 semanas | Seleccionar y especificar los instrumentos, sensores y actuadores requeridos para medir y controlar las variables del proceso. |
+| 3.2 | PLC e ISA-88 | 4 semanas | Diseñar la lógica de control, las secuencias, las fases, los módulos y los interbloqueos de seguridad del proceso. |
+| 3.3 | SCADA | 3 semanas | Diseñar las pantallas de supervisión, alarmas, tendencias e indicadores para monitorear y operar el proceso. |
+
+#### Robótica y simulación
+| Código | Actividad | Duración | Objetivo |
+|---|---|---:|---|
+| 4.1 | Plant Simulation | 4 semanas | Construir un modelo de eventos discretos que permita evaluar la capacidad, las rutas, los turnos, las fallas y diferentes escenarios productivos. |
+| 4.2 | RobotStudio | 3 semanas | Diseñar y validar virtualmente una celda robotizada, considerando el alcance del robot, los patrones de estiba, el efector final y la seguridad. |
+| 4.3 | NX MCD | 4 semanas | Crear un gemelo virtual mecatrónico para validar la cinemática, las señales, las secuencias y la interacción con un PLC virtual. |
+
+#### MES y ERP
+
+| Código | Actividad | Duración | Objetivo |
+|---|---|---:|---|
+| 5.1 | Implementación MES | 4 semanas | Diseñar el modelo MES para gestionar órdenes, recetas, lotes, trazabilidad e indicadores de producción. |
+| 5.2 | Implementación ERP | 4 semanas | Definir la configuración funcional del ERP para integrar compras, inventarios, costos y ventas. |
+| 5.3 | Integración y comunicación | 2 semanas | Diseñar y probar las interfaces de comunicación entre MES, ERP y SCADA. |
+
+#### Finanzas y oferta
+
+| Código | Actividad | Duración | Objetivo |
+|---|---|---:|---|
+| 6.1 | Modelo financiero y oferta | 12 semanas intermitentes | Evaluar la viabilidad económica del proyecto y construir el caso de negocio, el flujo de caja y el precio de la oferta. |
+| 6.2 | Financiación | 3 semanas | Definir una estructura de financiación basada en los hitos de pago, el flujo de caja y alternativas como crédito o leasing. |
+
 
 ## 4. Planta, productos y selección de línea
 
