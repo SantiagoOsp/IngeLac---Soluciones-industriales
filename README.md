@@ -1,96 +1,96 @@
-# 🥛 IntegraMotion - Soluciones industriales 5.0
+# IntegraMotion · Soluciones industriales 5.0
 
 ## 1. Descripción general
 
-Este proyecto tiene como objetivo diseñar una planta de producción de derivados lácteos bajo un enfoque de automatización industrial y transformación digital.
+IntegraMotion propone una solución de automatización y transformación digital para la planta de Lácteos Fúquene S.A.S., ubicada en Ubaté. La planta considera una alimentación de **25.000 L de leche por día**, distribuida entre yogur, quesos y productos UHT, con tres referencias por línea.
 
-La propuesta busca integrar los diferentes niveles de la organización y del proceso productivo mediante los lineamientos establecidos en las normas ISA-95 e ISA-88, permitiendo estructurar desde los procesos físicos y sistemas de control hasta los sistemas de gestión de producción y gestión empresarial.
+El desarrollo detallado de recetas, control y gemelo digital se concentra en la **línea de quesos: campesino, doble crema y mozzarella**. ISA-88 estructura sus equipos, secuencias y recetas. ISA-95 organiza la integración entre proceso, control, supervisión, gestión de operaciones y gestión empresarial, con una visión de las tres líneas y sus recursos compartidos.
 
-Adicionalmente, se plantea el desarrollo de un gemelo digital de la planta que permita representar, simular y analizar el comportamiento del sistema productivo antes de su implementación física.
+La propuesta vincula órdenes, lotes, materiales, condiciones de fabricación y resultados de calidad mediante una arquitectura OT/IT. Las cantidades, capacidades y parámetros de este documento corresponden al **escenario de diseño**; los resultados de ejecución se registran por separado.
 
-El proyecto contempla la integración entre tecnologías OT (Operational Technology) e IT (Information Technology), utilizando herramientas de automatización, simulación, comunicación industrial y gestión de datos.
+## 2. Objetivos de Transformación Digital Industrial
 
+### Objetivo general
 
----
+Diseñar la arquitectura de automatización e información de la planta, aplicando ISA-88 a la línea de quesos e ISA-95 a la integración entre operación y gestión.
 
-# 2. Objetivos
+### Objetivos específicos
 
-## 2.1 Objetivo general
+- Caracterizar las tres líneas, sus referencias y recursos compartidos.
+- Estructurar la celda de quesos, unidades, módulos de equipo y módulos de control.
+- Definir recetas, cantidades por lote, secuencias y condiciones de ejecución.
+- Identificar sensores, actuadores, variables críticas y confirmaciones manuales.
+- Asignar responsabilidades a control, SCADA, funciones MES y ERP.
+- Definir interfaces y registros de órdenes, consumos, calidad y trazabilidad.
+- Establecer una base común de equipos, estaciones y parámetros para control y gemelo digital de quesos.
 
-Diseñar una arquitectura integral de automatización y transformación digital para una planta de producción de derivados lácteos, aplicando los principios de ISA-95 e ISA-88 e integrando los niveles de proceso, control, supervisión, gestión de producción y gestión empresarial.
+## 3. Planta, productos y selección de línea
 
-## 2.2 Objetivos específicos
+| Línea | Referencias y presentación | Leche asignada por día | Participación |
+|---|---|---:|---:|
+| Yogur | Natural azucarado, fresa y mora. Vasos de 150 g. | 4.000 L | 16 % |
+| **Quesos** | **Q1 campesino y Q2 doble crema, 500 g; Q3 mozzarella, 2,5 kg.** | **9.000 L** | **36 %** |
+| UHT | Entera y deslactosada, 1 L; chocolate, 200 mL. | 12.000 L | 48 % |
+| **Total** | **Tres líneas y nueve referencias.** | **25.000 L** | **100 %** |
 
-- Diseñar la estructura general de la planta de producción.
-- Definir los procesos productivos correspondientes a los derivados lácteos seleccionados.
-- Identificar los principales equipos involucrados en cada proceso.
-- Identificar sensores, actuadores y variables de proceso.
-- Diseñar la arquitectura de automatización de la planta.
-- Aplicar el modelo jerárquico propuesto por ISA-95.
-- Aplicar conceptos de ISA-88 para la estructuración de procesos por lotes.
-- Definir las recetas y lotes asociados a los procesos productivos.
-- Diseñar una estrategia de trazabilidad de materias primas, procesos y productos terminados.
-- Definir la arquitectura de comunicación entre sistemas OT e IT.
-- Implementar una capa de integración utilizando Node-RED.
-- Diseñar un gemelo digital de la planta.
-- Simular el comportamiento del sistema productivo.
-- Analizar el flujo de información entre los diferentes niveles de la organización.
+```mermaid
+flowchart TD
+    REC["Recepción de leche<br/>25.000 L/día"]
+    Y["Yogur: 4.000 L/día<br/>Natural, fresa y mora"]
+    Q["Quesos: 9.000 L/día<br/>Línea seleccionada"]
+    U["UHT: 12.000 L/día<br/>Entera, deslactosada y chocolate"]
+    Q1["Q1 campesino<br/>4.500 L por lote diario"]
+    Q2["Q2 doble crema<br/>3.000 L por lote diario"]
+    Q3["Q3 mozzarella<br/>1.500 L por lote diario"]
+    REC --> Y
+    REC --> Q
+    REC --> U
+    Q --> Q1
+    Q --> Q2
+    Q --> Q3
+    classDef seleccionado fill:#dff3e8,stroke:#19865b,color:#123b2c,stroke-width:2px;
+    class Q,Q1,Q2,Q3 seleccionado;
+```
 
+### Justificación técnica de quesos
 
----
+La selección se sustenta en rutas diferenciadas y recursos compartidos. Campesino requiere lavado, prensado y oreo; doble crema y mozzarella requieren acidificación de cuajada e hilado, con ingredientes y acondicionamiento diferentes.
 
-# 3. Alcance del proyecto
+El VSM identifica el hilado compartido como recurso limitante del escenario inicial. Para aproximadamente 552 kg/día, una tasa de 70 kg/h requiere 7,89 h de proceso; con 30 min de limpieza, 8,39 h frente a una ventana de 7,4 h. La propuesta considera 300 kg/h, equivalentes a 1,84 h de proceso más limpieza. Son **estimaciones del recurso**, no resultados de desempeño de toda la línea.
 
-El proyecto comprende el diseño conceptual y digital de una planta destinada a la fabricación de tres productos derivados de la leche.
+Esta línea permite relacionar la selección de recetas con la reserva de equipos, las condiciones de proceso y la trazabilidad de producto y suero.
 
-Los productos inicialmente considerados son:
+## 4. Distribución y flujo de proceso
 
-1. Queso fresco.
-2. Yogurt.
-3. UHT.
+La distribución de diseño considera **67 × 30 m**, 22 estaciones y aproximadamente 192,9 m² de huellas de equipos. Las dimensiones de equipos constituyen la base de implantación. El siguiente diagrama representa conexiones funcionales, sin escala geométrica.
 
-> Nota: Los productos pueden modificarse de acuerdo con los requerimientos y alcance final del proyecto.
-
-El proyecto incluye las siguientes áreas:
-
-- Recepción de materia prima.
-- Almacenamiento de leche.
-- Tratamiento de la leche.
-- Producción de queso fresco.
-- Producción de yogurt.
-- Producción de UHT.
-- Envasado.
-- Almacenamiento de producto terminado.
-- Sistemas auxiliares.
-- Sistema de limpieza CIP.
-- Sistema de control y supervisión.
-- Gestión de producción.
-- Integración con sistemas empresariales.
-
-
----
-
-# 4. Arquitectura general del proyecto
-
-La arquitectura del sistema se estructura utilizando como referencia el modelo funcional de ISA-95.
-
-```text
-                NIVEL 4
-       Gestión empresarial - ERP
-                  │
-                  ▼
-                NIVEL 3
-       Gestión de operaciones - MES
-                  │
-                  ▼
-                NIVEL 2
-       Supervisión y control
-         SCADA / HMI / PLC
-                  │
-                  ▼
-                NIVEL 1
-       Sensores y actuadores
-                  │
-                  ▼
-                NIVEL 0
-          Proceso productivo
+```mermaid
+flowchart LR
+    subgraph AB["Zona A–B · Leche"]
+        E01["E01 Recepción y filtro"]
+        E02["E02 Silos 1 y 2"]
+        E03["E03 Descremadora y remezcla"]
+        E04["E04 Pasteurizador HTST"]
+        E01 --> E02 --> E03 --> E04
+    end
+    subgraph C["Zona C · Tinas"]
+        E05["E05 Tina 1 · Q1"]
+        E06["E06 Tina 2 · Q2"]
+        E07["E07 Tina 3 · Q3"]
+    end
+    subgraph D["Zona D · Formado"]
+        E08["E08 Salado en masa"]
+        E09["E09 Moldeo y prensa"]
+        E10["E10 Oreo y desmolde"]
+        E11["E11 Acidificación Q2"]
+        E12["E12 Acidificación Q3"]
+        E13["E13 Hiladora-moldeadora"]
+        E14["E14 Enfriamiento Q2"]
+        E15["E15 Agua y salmuera Q3"]
+    end
+    subgraph E["Zona E · Empaque"]
+        E16["E16 Termoformadora Q1/Q2"]
+        E17["E17 Empacadora y túnel Q3"]
+        E18["E18 Codificación, peso y metales"]
+    end
+    subgraph F["Zona F · Despacho"]
