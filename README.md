@@ -556,11 +556,11 @@ Los volúmenes de la tabla corresponden a la asignación de leche definida para 
 
 El modelo incorpora equipos compartidos entre líneas, como los recursos de hilado, moldeo, termoformado y paletizado, cuando corresponde a la configuración definida. Estos recursos requieren especial atención porque pueden introducir dependencias entre las secuencias de producción y limitar la capacidad de procesamiento si varias líneas los requieren simultáneamente.
 
-![Figura 11.1. Representación general del sistema productivo](imagenes/simulacionGeneral.png)
+![Figura 11.1. Representación general del sistema productivo](Imagenes/simulacionGeneral.png)
 
 *Figura 11.1. Representación general del sistema productivo y de las conexiones entre recursos.*
 
-![Figura 11.1. Representación general del sistema productivo](imagenes/LineasQ123.png)
+![Figura 11.1. Representación general del sistema productivo](Imagenes/LineasQ123.png)
 
 *Figura 11.2. Flujo de materiales y equipos compartidos entre las líneas de producción.*
 
@@ -602,7 +602,7 @@ Los principales estados considerados son:
 
 La interpretación de estos estados depende de la lógica implementada en cada objeto. Por ejemplo, `Waiting` no representa necesariamente una falla ni una pérdida de eficiencia: puede corresponder a una espera normal por disponibilidad de materia prima o a una operación que todavía no necesita ejecutarse.
 
-![Figura 11.1. Estadísticas de cada máquina](imagenes/estadisticasRecursos.png)
+![Figura 11.1. Estadísticas de cada máquina](Imagenes/estadisticasRecursos.png)
 
 *Figura 11.2. Estadísticas de cada máquina.*
 
