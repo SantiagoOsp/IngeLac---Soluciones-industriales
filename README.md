@@ -29,7 +29,67 @@ El desarrollo detallado de recetas, control y gemelo digital se concentra en la 
 
 La propuesta vincula órdenes, lotes, materiales, condiciones de fabricación y resultados de calidad mediante una arquitectura OT/IT. Las cantidades, capacidades y parámetros de este documento corresponden al **escenario de diseño**; los resultados de ejecución se registran por separado.
 
-## 2. Objetivos de Transformación Digital Industrial
+## 2. EDT del Proyecto
+
+### Objetivo general
+La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance comprende desde la planeación inicial hasta la integración y validación de la solución propuesta.
+
+```mermaid
+flowchart TD
+    P["1. Proyecto de automatización<br/>Lácteos Fúquene"]
+
+    P --> A["1.1 Gestión del proyecto"]
+    P --> B["1.2 Ingeniería del proceso"]
+    P --> C["1.3 Automatización y control"]
+    P --> D["1.4 Transformación digital"]
+    P --> E["1.5 Simulación y distribución"]
+    P --> F["1.6 Integración y validación"]
+    P --> G["1.7 Documentación y entrega"]
+
+    A --> A1["1.1.1 Definición del alcance"]
+    A --> A2["1.1.2 Cronograma"]
+    A --> A3["1.1.3 Presupuesto y riesgos"]
+    A --> A4["1.1.4 Seguimiento del proyecto"]
+
+    B --> B1["1.2.1 Caracterización de productos"]
+    B --> B2["1.2.2 Balance de materiales"]
+    B --> B3["1.2.3 Diseño del proceso de quesos"]
+    B --> B4["1.2.4 Selección de equipos"]
+
+    C --> C1["1.3.1 Instrumentación"]
+    C --> C2["1.3.2 Modelo ISA-88"]
+    C --> C3["1.3.3 Grafcet y programación PLC"]
+    C --> C4["1.3.4 Interbloqueos y alarmas"]
+
+    D --> D1["1.4.1 Arquitectura ISA-95"]
+    D --> D2["1.4.2 Diseño SCADA"]
+    D --> D3["1.4.3 Integración MES–ERP"]
+    D --> D4["1.4.4 Trazabilidad de lotes"]
+
+    E --> E1["1.5.1 Diseño del layout"]
+    E --> E2["1.5.2 Modelo en Tecnomatix"]
+    E --> E3["1.5.3 Simulación del flujo"]
+    E --> E4["1.5.4 Evaluación de capacidad"]
+
+    F --> F1["1.6.1 Integración PLC–SCADA"]
+    F --> F2["1.6.2 Gemelo digital"]
+    F --> F3["1.6.3 Pruebas funcionales"]
+    F --> F4["1.6.4 Validación de resultados"]
+
+    G --> G1["1.7.1 Informe técnico"]
+    G --> G2["1.7.2 Planos y diagramas"]
+    G --> G3["1.7.3 Presentación final"]
+    G --> G4["1.7.4 Entrega del proyecto"]
+
+    classDef principal fill:#17365d,stroke:#0b1f36,color:#fff;
+    classDef entregable fill:#d9eaf7,stroke:#3979a8,color:#102a43;
+    classDef paquete fill:#eef5ea,stroke:#5f8c52,color:#20351b;
+    class P principal;
+    class A,B,C,D,E,F,G entregable;
+    class A1,A2,A3,A4,B1,B2,B3,B4,C1,C2,C3,C4,D1,D2,D3,D4,E1,E2,E3,E4,F1,F2,F3,F4,G1,G2,G3,G4 paquete;
+```
+
+## 3. Objetivos de Transformación Digital Industrial
 
 ### Objetivo general
 
@@ -45,7 +105,7 @@ Diseñar la arquitectura de automatización e información de la planta, aplican
 - Definir interfaces y registros de órdenes, consumos, calidad y trazabilidad.
 - Establecer una base común de equipos, estaciones y parámetros para control y gemelo digital de quesos.
 
-## 3. Planta, productos y selección de línea
+## 4. Planta, productos y selección de línea
 
 | Línea | Referencias y presentación | Leche asignada por día | Participación |
 |---|---|---:|---:|
@@ -81,7 +141,7 @@ El VSM identifica el hilado compartido como recurso limitante del escenario inic
 
 Esta línea permite relacionar la selección de recetas con la reserva de equipos, las condiciones de proceso y la trazabilidad de producto y suero.
 
-## 4. Distribución y flujo de proceso
+## 5. Distribución y flujo de proceso
 
 La distribución de diseño considera **67 × 30 m**, 22 estaciones y aproximadamente 192,9 m² de huellas de equipos. Las dimensiones de equipos constituyen la base de implantación. El siguiente diagrama representa conexiones funcionales, sin escala geométrica.
 
@@ -152,9 +212,9 @@ Los planos corresponden a la base de diseño del equipo. La numeración se conse
 
 </details>
 
-## 5. Aplicación de ISA-88
+## 6. Aplicación de ISA-88
 
-### 5.1 Modelo físico
+### 6.1 Modelo físico
 
 | Nivel | Aplicación |
 |---|---|
@@ -197,7 +257,7 @@ flowchart TD
 
 IntegraMotion actúa como integradora de la solución; Lácteos Fúquene es la empresa representada en la jerarquía del proceso.
 
-### 5.2 Modelo procedimental
+### 6.2 Modelo procedimental
 
 | Nivel | Aplicación a campesino Q1 |
 |---|---|
@@ -212,7 +272,7 @@ IntegraMotion actúa como integradora de la solución; Lácteos Fúquene es la e
 | Q2 | E06: inoculación/coagulación; E11: acidificación; E13: hilado y crema; E14: enfriamiento; E16: termoformado; E18–E22: salida. |
 | Q3 | E07: inoculación/coagulación/cocción; E12: acidificación; E13: hilado; E15: agua/salmuera; E17: vacío/encogimiento; E18–E22: salida. |
 
-### 5.3 Recetas y formulación de diseño
+### 6.3 Recetas y formulación de diseño
 
 Las recetas maestras son **RM-Q1-v3, RM-Q2-v3 y RM-Q3-v3**. La receta de control vincula la versión aprobada con orden, lote, cantidad, equipos y partidas de ingredientes.
 
@@ -246,7 +306,7 @@ Los cultivos se expresan como **cultivo líquido de trabajo**, no como concentra
 
 La asignación de leche indica la carga base; los ingredientes adicionales se contabilizan aparte. La autorización de carga considera capacidad útil, ingredientes y margen de operación. Los balances usan masa y densidad medida para conciliar queso, suero, efluentes y mermas.
 
-### 5.4 Condiciones de proceso
+### 6.4 Condiciones de proceso
 
 | Receta | Elaboración | Operación diferenciadora | Acondicionamiento |
 |---|---|---|---|
@@ -258,7 +318,7 @@ La pasteurización E04 considera 72–75 °C durante 15–20 s. El control super
 
 Los tiempos son referencias de programación. El corte exige firmeza confirmada; el hilado exige pH medido y prueba de elasticidad satisfactoria. La temperatura del agua y la de la masa se registran como variables distintas.
 
-### 5.5 Fases, permisos e interbloqueos
+### 6.5 Fases, permisos e interbloqueos
 
 | Fase | Condición de inicio | Fin de fase | Respuesta ante fallo |
 |---|---|---|---|
@@ -285,7 +345,7 @@ flowchart TD
 
 Las confirmaciones manuales, incluida firmeza y prueba de elasticidad, identifican operador, hora y lote. Grafcet, Ladder y las pruebas funcionales desarrollan esta especificación en los módulos de control y gemelo digital.
 
-## 6. Instrumentación propuesta
+## 7. Instrumentación propuesta
 
 | Señal o elemento | Función | Decisión asociada |
 |---|---|---|
@@ -302,7 +362,7 @@ Las confirmaciones manuales, incluida firmeza y prueba de elasticidad, identific
 
 Los identificadores de tina se replican para TQ-302 y TQ-303. Cada señal especifica origen físico, entrada manual o variable simulada. Los interbloqueos locales del PLC se conservan ante pérdida de comunicación con gestión.
 
-## 7. Arquitectura de integración ISA-95
+## 8. Arquitectura de integración ISA-95
 
 ```mermaid
 flowchart TD
@@ -387,7 +447,7 @@ Este esquema identifica un ejemplo de orden; no corresponde a una API específic
 | Calidad | Muestra, ensayo, resultado, criterio, estado, responsable y hora. |
 | Cierre | Producción real, empaque, suero, rechazos, mermas, duración y estado de calidad. |
 
-## 8. Trazabilidad e integridad de la información
+## 9. Trazabilidad e integridad de la información
 
 ```mermaid
 flowchart LR
@@ -408,7 +468,7 @@ flowchart LR
 - La propuesta conserva registros localmente durante desconexión y sincroniza al recuperar el enlace.
 - Los permisos distinguen operación, aprobación de recetas, calidad, mantenimiento y programación.
 
-## 9. Articulación con los módulos del proyecto
+## 10. Articulación con los módulos del proyecto
 
 | Módulo | Relación con el diseño TDI |
 |---|---|
