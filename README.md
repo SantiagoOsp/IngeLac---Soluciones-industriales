@@ -14,7 +14,7 @@ Proyecto integrador de Automatización de Procesos de Manufactura.
 |---|---|---|
 | Santiago Ospina | CEO | Identidad empresarial y transformación digital. |
 | Marco Morales | CTO | Transformación digital, modelos ISA-88 e ISA-95 y edición. |
-| Dixon Cuesta | CFO | Identidad empresarial y transformación digital. |
+| Dixon Cuesta | CFO | Gestión, administración y finanzas |
 | Yesid Ojeda | COO | Simulación en Tecnomatix y diseño del layout. |
 | Juan Andres Moreno | CDO | Identidad empresarial y transformación digital. |
 | Carlos Guzmán | CCO | EDT del proyecto y estructuración de la información. |
