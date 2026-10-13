@@ -469,3 +469,204 @@ flowchart LR
 | SCADA | Ignition, operación y supervisión, alarmas, tendencias y comunicación OPC. |
 | Celda robotizada | Paletizado previsto en E20, flujo de cajas y coordinación con producción. |
 | Planeación y evaluación de proyectos | Equipos y recursos de la propuesta como base de cronograma y evaluación económica. |
+
+# 11. Simulación de la planta en Tecnomatix Plant Simulation
+
+## 11.1. Objetivo y alcance de la simulación
+
+La simulación de la planta de Lácteos Fúquene S.A.S. se desarrolló en Siemens Tecnomatix Plant Simulation, con el propósito de representar el flujo de materiales, evaluar la utilización de los recursos productivos e identificar posibles restricciones que afecten la continuidad de las operaciones.
+
+El modelo integra las principales estaciones, equipos de procesamiento, tuberías, transportadores, buffers y recursos compartidos definidos para las líneas de queso campesino, queso doble crema y mozzarella. La simulación permite observar los estados operativos de los recursos y analizar cómo la disponibilidad de materia prima, las condiciones de transferencia entre estaciones y la planificación de la producción influyen en el comportamiento del sistema.
+
+El análisis se complementa con la librería BottleneckAnalyzer, utilizada para examinar la distribución temporal de los estados de los recursos e identificar estaciones con altos porcentajes de espera, bloqueo o interrupción.
+
+Los objetivos específicos son:
+
+- Analizar la continuidad del flujo de materiales entre estaciones.
+- Identificar recursos con tiempos elevados de espera o bloqueo.
+- Examinar las restricciones derivadas de la disponibilidad de materia prima y de la programación de la producción.
+- Estimar indicadores de disponibilidad, rendimiento, calidad y OEE para las estaciones seleccionadas.
+- Proponer oportunidades de mejora en la coordinación entre equipos y en la planificación de los procesos.
+
+Alcance: los resultados corresponden al comportamiento del modelo bajo los parámetros, tiempos y condiciones de operación configurados. Por tanto, constituyen resultados de simulación y no mediciones directas de una planta industrial en funcionamiento.
+
+## 11.2. Modelado del flujo de producción
+
+El modelo representa el desplazamiento de la materia prima y de las unidades de producción entre los recursos definidos para las líneas de queso. Las estaciones se conectan mediante objetos de transporte y transferencia, mientras que los equipos de procesamiento representan las operaciones correspondientes a cada producto.
+
+Se consideran tres líneas principales:
+
+| Línea | Producto | Producción diaria de referencia |
+|---|---|---:|
+| Q1 | Queso campesino | 4.500 L/día |
+| Q2 | Queso doble crema | 3.000 L/día |
+| Q3 | Mozzarella | 1.500 L/día |
+| Total | Procesamiento de leche destinado a las tres líneas | 9.000 L/día |
+
+Los volúmenes de la tabla corresponden a la asignación de leche definida para el escenario de producción del proyecto. No representan necesariamente el volumen de producto terminado, puesto que el rendimiento depende de la formulación, la humedad, el desuerado y las características de cada queso.
+
+El modelo incorpora equipos compartidos entre líneas, como los recursos de hilado, moldeo, termoformado y paletizado, cuando corresponde a la configuración definida. Estos recursos requieren especial atención porque pueden introducir dependencias entre las secuencias de producción y limitar la capacidad de procesamiento si varias líneas los requieren simultáneamente.
+
+![Figura 11.1. Representación general del sistema productivo](imagenes/simulacionGeneral.png)
+
+*Figura 11.1. Representación general del sistema productivo y de las conexiones entre recursos.*
+
+![Figura 11.1. Representación general del sistema productivo](imagenes/LineasQ123.png)
+
+*Figura 11.2. Flujo de materiales y equipos compartidos entre las líneas de producción.*
+
+## 11.3. Condiciones de operación y supuestos de simulación
+
+La evaluación se realiza bajo las condiciones temporales y de suministro configuradas en el modelo. Para interpretar correctamente los resultados, se diferencia entre el horizonte total de simulación, el tiempo programado para producir y los periodos en los que la operación no está prevista.
+
+La disponibilidad de materia prima no se considera necesariamente continua durante todo el horizonte. En particular, para la línea Q3 se contempla una ventana efectiva de producción determinada por la planificación de turnos, la asignación diaria de leche y la demanda del producto.
+
+Los siguientes criterios se utilizan para interpretar los resultados:
+
+| Parámetro | Criterio adoptado |
+|---|---|
+| Horizonte de simulación | Periodo total configurado en Tecnomatix Plant Simulation |
+| Programación de turnos | Determina los intervalos en los que se requiere producción |
+| Disponibilidad de materia prima | Depende de la asignación y del suministro definidos para cada línea |
+| Demanda de producción | Determina la cantidad de producto que se necesita fabricar |
+| Calidad | Se adopta un valor del 97 % como supuesto de modelado para el cálculo ilustrativo del OEE |
+| Análisis de estados | Se utiliza BottleneckAnalyzer para evaluar la distribución temporal de los estados de los recursos |
+
+El porcentaje del 97 % de calidad es un supuesto y no una medición de producto conforme obtenida de la simulación. Para calcular un OEE industrial validado, este valor deberá sustituirse por la proporción real o simulada de unidades conformes respecto del total producido.
+
+## 11.4. Análisis de estados mediante BottleneckAnalyzer
+
+La librería BottleneckAnalyzer permite examinar el porcentaje de tiempo que cada recurso permanece en los diferentes estados registrados durante la simulación. Esta información facilita la identificación de estaciones que trabajan durante una parte reducida del horizonte, permanecen esperando material o se encuentran bloqueadas por restricciones en el flujo.
+
+Los principales estados considerados son:
+
+| Estado | Interpretación |
+|---|---|
+| `Working` | El recurso ejecuta su operación productiva. |
+| `Set-up` | El recurso realiza actividades de preparación o cambio de configuración. |
+| `Waiting` | El recurso permanece esperando una entidad, material, condición o evento necesario para continuar. |
+| `Blocked` | El recurso no puede transferir o liberar el material debido a una restricción aguas abajo o a una condición de salida. |
+| `PoweringUpDown` | El recurso está en una transición de encendido o apagado. |
+| `Disrupted` | El recurso se encuentra en un estado de interrupción definido por el modelo. |
+| `Stopped` | El recurso está detenido según la lógica configurada. |
+| `Pause` | El recurso se encuentra en un periodo de pausa definido en el modelo. |
+
+La interpretación de estos estados depende de la lógica implementada en cada objeto. Por ejemplo, `Waiting` no representa necesariamente una falla ni una pérdida de eficiencia: puede corresponder a una espera normal por disponibilidad de materia prima o a una operación que todavía no necesita ejecutarse.
+
+![Figura 11.1. Estadísticas de cada máquina](imagenes/estadisticasRecursos.png)
+
+*Figura 11.2. Estadísticas de cada máquina.*
+
+### 11.4.1. Interpretación de las restricciones
+
+#### a. Bloqueo en `DePortioner11`
+
+El recurso presenta un 80,86 % de tiempo de trabajo y un 19,14 % de tiempo bloqueado. Este comportamiento indica que, durante una parte del horizonte, el equipo no puede continuar con normalidad debido a una restricción de salida o a la lógica de transferencia configurada.
+
+Para determinar si el bloqueo está relacionado con la capacidad de la estación siguiente, el espacio disponible en un buffer o una condición de transferencia, es necesario revisar la conexión entre los objetos y los eventos ocurridos durante esos intervalos.
+
+#### b. Espera en `TinaQuesoCampesino`
+
+La tina registra un 80,86 % de espera y un 19,14 % de interrupción, sin tiempo de trabajo en la salida analizada. Este resultado indica que el recurso no está ejecutando la operación productiva durante el horizonte observado.
+
+El patrón podría estar relacionado con la disponibilidad de entidades de entrada, la programación de la operación o las condiciones de activación del equipo. Sin embargo, el resultado no permite atribuir por sí solo la espera a una causa física específica. Se debe verificar si la tina recibe material, si los tiempos de proceso están correctamente configurados y si la lógica de inicio e interrupción corresponde a la secuencia productiva prevista.
+
+
+
+
+## 11.5. Cálculo e interpretación del OEE
+
+El indicador OEE (*Overall Equipment Effectiveness*) permite evaluar el desempeño de un equipo a partir de tres componentes: disponibilidad, rendimiento y calidad.
+
+La expresión general es:
+
+\[
+OEE = D \times R \times C
+\]
+
+donde:
+
+- \(D\): disponibilidad.
+- \(R\): rendimiento.
+- \(C\): calidad.
+
+Para el análisis presentado se utilizan las siguientes expresiones:
+
+\[
+D = \frac{T_p-T_d}{T_p}\times100
+\]
+
+\[
+R = \frac{T_w}{T_p-T_d}\times100
+\]
+
+donde:
+
+- \(T_p\): tiempo programado de producción.
+- \(T_d\): tiempo en estado `Disrupted` dentro de la ventana programada.
+- \(T_w\): tiempo en estado `Working` dentro de la ventana programada.
+
+Para combinar los tres componentes en la expresión del OEE, los porcentajes se convierten a valores entre 0 y 1. En esta estimación, el rendimiento se aproxima mediante la fracción de tiempo en estado `Working` respecto del tiempo programado disponible después de descontar `Disrupted`. Este procedimiento es una aproximación basada en estados del modelo; no sustituye el cálculo convencional del rendimiento a partir del tiempo de ciclo ideal y las unidades producidas.
+
+### 11.5.1. Resultados de referencia para las moldeadoras
+
+Los resultados previamente obtenidos para las moldeadoras son los siguientes:
+
+| Indicador | Q1: MoldeadoraQ1 | Q2: MoldeadoraQ2 | Q3: MoldeadoraQ3 |
+|---|---:|---:|---:|
+| Tiempo programado utilizado, \(T_p\) | 43,75 % | 43,75 % | 14,00 % |
+| Disponibilidad, \(D\) | 97,53 % | 93,76 % | 80,86 % |
+| Rendimiento estimado, \(R\) | 70,82 % | 78,60 % | 74,73 % |
+| Calidad asumida, \(C\) | 97,00 % | 97,00 % | 97,00 % |
+| OEE estimado | 67,00 % | 71,49 % | 58,62 % |
+
+*Nota: estos resultados provienen del análisis previo de las moldeadoras y utilizan ventanas de tiempo programado específicas. Deben conservarse únicamente si corresponden a la misma configuración, ejecución y definición de estados de la simulación. La tabla de BottleneckAnalyzer presentada en la sección 11.4 muestra una distribución diferente para `MoldeadoraQ1`, `MoldeadoraQ2` y `MoldeadoraQ3` (100 % en espera), por lo que es necesario verificar que ambas salidas correspondan a la misma corrida y al mismo intervalo antes de presentarlas como resultados directamente comparables.*
+
+### 11.5.2. Justificación del tiempo programado de Q3
+
+Para la línea Q3, correspondiente a mozzarella, se adoptó un tiempo programado de producción equivalente al 14 % del horizonte total de simulación.
+
+Este valor se definió a partir del análisis del comportamiento de los recursos mediante la librería BottleneckAnalyzer y de la planificación operativa establecida para el escenario. En particular, se consideraron los turnos de producción, la asignación diaria de materia prima, el carácter no continuo del suministro de leche y la cantidad de mozzarella requerida de acuerdo con la demanda.
+
+A diferencia de un escenario de abastecimiento continuo, la línea Q3 no necesita permanecer produciendo durante todo el horizonte de simulación. Su operación se concentra en una ventana durante la cual existe materia prima disponible para fabricar la cantidad planificada. Una vez satisfecha la necesidad de producción o agotada la asignación de leche destinada a la línea, la operación se detiene porque no se requiere continuar procesando material durante el resto del periodo analizado.
+
+Por esta razón, el tiempo restante se considera fuera del tiempo programado de producción únicamente bajo el supuesto de que la línea no tenía obligación de producir durante esos intervalos. Esta decisión evita contabilizar como pérdida operativa el tiempo en el que la producción no está planificada debido a la demanda y al esquema de suministro definido.
+
+El 14 % constituye, por tanto, un criterio de planificación del modelo sustentado en el análisis de estados y en las condiciones de suministro y demanda, y no una medición directa del tiempo de operación. Para documentar adecuadamente esta decisión, se recomienda conservar como evidencia la salida de BottleneckAnalyzer, la programación de turnos y la asignación de materia prima a Q3.
+
+La distinción es importante: si la estación estuviera programada para producir y no pudiera hacerlo por falta de leche, esa situación debería evaluarse como una pérdida de disponibilidad. En cambio, si el periodo se encuentra formalmente fuera del programa de producción, no debe incorporarse al denominador del OEE.
+
+### 11.5.3. Interpretación comparativa
+
+De acuerdo con los resultados de referencia de la sección 11.5.1, Q2 presenta el OEE estimado más alto, con 71,49 %, seguida de Q1, con 67,00 %. Q3 registra 58,62 % cuando se evalúa exclusivamente dentro de la ventana programada del 14 % del horizonte.
+
+Estas diferencias deben interpretarse teniendo en cuenta que Q3 utiliza un denominador temporal distinto. Por ello, el OEE de Q3 no debe compararse de forma aislada con los de Q1 y Q2 sin verificar que las ventanas programadas, los criterios de clasificación de estados y las condiciones de operación sean consistentes.
+
+Además, el porcentaje de calidad del 97 % es un supuesto de cálculo. Para obtener un OEE más representativo, se deberán incorporar el tiempo de ciclo ideal, las cantidades producidas y las unidades conformes de cada línea.
+
+## 11.6. Oportunidades de mejora identificadas
+
+A partir de los resultados de estados y del cálculo de indicadores, se proponen las siguientes acciones:
+
+| Hallazgo | Acción recomendada | Objetivo |
+|---|---|---|
+| Bloqueo de `DePortioner11` | Revisar la capacidad de salida, las conexiones y las condiciones de transferencia. | Reducir bloqueos y mejorar la continuidad del flujo. |
+| Espera elevada en `TinaQuesoCampesino` | Verificar las llegadas de material, los tiempos de proceso y la lógica de activación. | Determinar si la espera es normal o se debe a una restricción del modelo. |
+| Baja utilización de `Track` | Revisar el ritmo de llegada de entidades y la sincronización con los recursos conectados. | Evitar esperas innecesarias y mejorar la coordinación del transporte. |
+| Recursos con 100 % de espera o bloqueo | Comprobar la conectividad, las condiciones de liberación y la generación de entidades en cada línea. | Confirmar que todas las estaciones estén correctamente representadas. |
+| Suministro no continuo de leche a Q3 | Alinear el tiempo programado con los turnos, la asignación de materia prima y la demanda. | Evaluar el desempeño dentro de la ventana real de producción prevista. |
+| Calidad fijada en 97 % | Incorporar datos de unidades conformes y no conformes. | Obtener una estimación de calidad sustentada en datos del proceso. |
+| Rendimiento calculado mediante estados | Incorporar el tiempo de ciclo ideal y la cantidad producida. | Aproximar el OEE al método convencional de cálculo. |
+
+Estas acciones deben evaluarse mediante nuevas corridas de simulación y comparación de escenarios. No se considera suficiente aumentar la capacidad de un equipo únicamente porque registre una utilización elevada: también debe verificarse si la estación limita realmente la producción total del sistema.
+
+## 11.7. Limitaciones del análisis
+
+Los resultados están condicionados por los parámetros de entrada, la lógica de los objetos y el horizonte de simulación utilizado. Por ello, se reconocen las siguientes limitaciones:
+
+1. Los estados de BottleneckAnalyzer describen la distribución temporal de los recursos, pero no identifican por sí solos la causa física de cada espera, bloqueo o interrupción.
+2. Los recursos con 100 % de espera o bloqueo deben verificarse antes de interpretar sus resultados como evidencia de restricciones industriales.
+3. El 14 % de tiempo programado para Q3 es un criterio adoptado para representar la ventana efectiva de producción del escenario; su trazabilidad depende de la planificación de turnos, la asignación de leche y la demanda.
+4. La calidad del 97 % corresponde a un supuesto de modelado y no a un resultado medido de conformidad.
+5. El rendimiento estimado a partir del estado `Working` es una aproximación temporal y no equivale necesariamente al rendimiento convencional calculado mediante el ciclo ideal.
+6. Los resultados de OEE y BottleneckAnalyzer deben corresponder a la misma configuración y corrida de simulación, o sus diferencias deben explicarse expresamente.
