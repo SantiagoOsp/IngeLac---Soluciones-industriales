@@ -29,9 +29,26 @@ El desarrollo detallado de recetas, control y gemelo digital se concentra en la 
 
 La propuesta vincula órdenes, lotes, materiales, condiciones de fabricación y resultados de calidad mediante una arquitectura OT/IT. Las cantidades, capacidades y parámetros de este documento corresponden al **escenario de diseño**; los resultados de ejecución se registran por separado.
 
-## 2. EDT del Proyecto
+
+## 3. Objetivos de Transformación Digital Industrial
 
 ### Objetivo general
+
+Diseñar la arquitectura de automatización e información de la planta, aplicando ISA-88 a la línea de quesos e ISA-95 a la integración entre operación y gestión.
+
+### Objetivos específicos
+
+- Caracterizar las tres líneas, sus referencias y recursos compartidos.
+- Estructurar la celda de quesos, unidades, módulos de equipo y módulos de control.
+- Definir recetas, cantidades por lote, secuencias y condiciones de ejecución.
+- Identificar sensores, actuadores, variables críticas y confirmaciones manuales.
+- Asignar responsabilidades a control, SCADA, funciones MES y ERP.
+- Definir interfaces y registros de órdenes, consumos, calidad y trazabilidad.
+- Establecer una base común de equipos, estaciones y parámetros para control y gemelo digital de quesos.
+
+## 2. EDT del Proyecto
+
+  ### Objetivo general
 La EDT organiza el proyecto en entregables y paquetes de trabajo. Su alcance comprende desde la planeación inicial hasta la integración y validación de la solución propuesta.
 
 ```mermaid
@@ -78,21 +95,6 @@ flowchart TD
     class A,B,C,D,E,F nivelUno;
     class A1,A2,A3,B1,B2,B3,B4,B5,C1,C2,C3,D1,D2,D3,E1,E2,E3,F1,F2 paquete;
 ```
-## 3. Objetivos de Transformación Digital Industrial
-
-### Objetivo general
-
-Diseñar la arquitectura de automatización e información de la planta, aplicando ISA-88 a la línea de quesos e ISA-95 a la integración entre operación y gestión.
-
-### Objetivos específicos
-
-- Caracterizar las tres líneas, sus referencias y recursos compartidos.
-- Estructurar la celda de quesos, unidades, módulos de equipo y módulos de control.
-- Definir recetas, cantidades por lote, secuencias y condiciones de ejecución.
-- Identificar sensores, actuadores, variables críticas y confirmaciones manuales.
-- Asignar responsabilidades a control, SCADA, funciones MES y ERP.
-- Definir interfaces y registros de órdenes, consumos, calidad y trazabilidad.
-- Establecer una base común de equipos, estaciones y parámetros para control y gemelo digital de quesos.
 
 ## 4. Planta, productos y selección de línea
 
