@@ -719,3 +719,32 @@ Los resultados están condicionados por los parámetros de entrada, la lógica d
 4. La calidad del 97 % corresponde a un supuesto de modelado y no a un resultado medido de conformidad.
 5. El rendimiento estimado a partir del estado `Working` es una aproximación temporal y no equivale necesariamente al rendimiento convencional calculado mediante el ciclo ideal.
 6. Los resultados de OEE y BottleneckAnalyzer deben corresponder a la misma configuración y corrida de simulación, o sus diferencias deben explicarse expresamente.
+
+# 12. Caso de estudio, producción y evaluación financiera
+
+## 12.1. Documentos
+
+| Documento | Contenido |
+|---|---|
+| [Documento del caso](Produccion%20y%20finanzas/Documento_del_caso.pdf) | Lácteos Fúquene (operación, estados financieros, hallazgos), entorno del sector, normas que condicionan el proyecto, IntegraMotion (constitución, normas, cómo y cuánto cobra), matriz de selección de la línea y alcance preliminar de la oferta. |
+| [EDT del proceso productivo](Produccion%20y%20finanzas/EDT_proceso_productivo.pdf) | Desglose de las operaciones de las tres líneas, nivel de automatización actual y propuesto para la quesería, recursos y cuellos de botella. |
+| [VSM de las líneas](Produccion%20y%20finanzas/VSM_lineas.pdf) | Mapas de flujo de valor del campesino, los hilados, el yogur y el UHT; recursos compartidos, OEE de los equipos de fin de línea e indicadores por familia. |
+| [Modelo financiero de la quesería](Produccion%20y%20finanzas/Modelo_financiero_queseria.xlsx) | Inversión, beneficios, flujo de caja a 10 años, financiación, escenarios y modelo de negocio de IntegraMotion. |
+
+## 12.2. Oferta para la quesería
+
+La propuesta se ejecuta por etapas: diagnóstico de la planta (etapa 0); tinas automatizadas, medición de grasa en línea y SCADA, historiador y MES ligero de la quesería (etapa 1); hiladora-moldeadora continua, CIP del circuito de quesos y aprovechamiento del suero (etapa 2). La celda robotizada de paletizado queda como trabajo planeado. La oferta incluye el diseño de la interfaz con el ERP; la configuración del ERP y la ampliación a yogur y UHT no hacen parte de ella.
+
+Cifras en millones de pesos constantes, tasa de descuento del 16 %:
+
+| Indicador | Valor |
+|---|---:|
+| Inversión (años 0 y 1) | 1.039 |
+| Beneficio anual en régimen | 369 |
+| TIR del proyecto | 18,5 % |
+| VPN | 92 |
+| ROI a 10 años | 128 % |
+| Recuperación | 5,0 años |
+| TIR del inversionista (70 % financiado, 7 años, 14,1 % E.A.) | 31,1 % |
+
+La inversión se financia con la línea Impulso a la Productividad de Bancóldex. Ningún trabajador sale de la empresa: los operarios del hilado se capacitan y se reasignan. Los escenarios de riesgo y los supuestos están en el documento del caso y en el modelo financiero.
