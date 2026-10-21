@@ -521,7 +521,7 @@ flowchart LR
 
 # 11. Simulación de la planta en Tecnomatix Plant Simulation
 
-[Ver Docuemntación y estructura de vsm](VSM/EDT_proceso_productivo%20(4)-2.pdf)
+A continuación se presenta el documento con la estructura de VSM que se tomó como base para la realización de la simulación [Ver Documentación y estructura de vsm](VSM/EDT_proceso_productivo%20(4)-2.pdf)
 ## 11.1. Objetivo y alcance de la simulación
 
 La simulación de la planta de Lácteos Fúquene S.A.S. se desarrolló en Siemens Tecnomatix Plant Simulation, con el propósito de representar el flujo de materiales, evaluar la utilización de los recursos productivos e identificar posibles restricciones que afecten la continuidad de las operaciones.
