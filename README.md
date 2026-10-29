@@ -733,14 +733,29 @@ Los resultados están condicionados por los parámetros de entrada, la lógica d
 | [Modelo financiero de la quesería](Produccion%20y%20finanzas/Modelo_financiero_queseria.xlsx) | Supuestos, BOM del proyecto enlazado a la inversión, beneficios con su respaldo, flujo de caja de 2027 a 2037, crédito, escenarios, análisis de riesgo, compuertas, efecto en la empresa y costo de la ingeniería de IntegraMotion por capas, por contrato y por paquete de la EDT, y una hoja Resumen con los cuadros que se presentan. |
 | [Informe de cuadros de la oferta](Produccion%20y%20finanzas/Informe_oferta_cuadros.pdf) | Los cuadros principales del modelo para presentar la oferta: cifras clave, contratos, presupuesto, control del contrato principal por valor ganado, quién hace qué, BOM, hallazgos, beneficios y cómo se mide cada uno, flujo, financiación, beneficios tributarios, escenarios y plan de respuesta a los riesgos. |
 | [Minuta del contrato](Produccion%20y%20finanzas/Minuta_contrato_IntegraMotion.pdf) | Minuta académica del contrato principal y sus dos otrosíes, con sus cuatro anexos: actividades, horas y criterios de aceptación medibles; tarifas por rol; cronograma, curva S e hitos de pago; y quién hace cada trabajo. Cada entregable se acepta solo contra su criterio, y las compuertas se miden con cifras. |
-| [Informe a la Junta Directiva](Produccion%20y%20finanzas/Informe_junta_directiva.pdf) | Informe ejecutivo de cuatro páginas para la junta de Lácteos Fúquene: decisiones que se piden, cifras clave del modelo, de dónde sale el valor, flujo de caja, financiación, escenarios, compuertas, personas y calendario. |
+| [Informe ejecutivo](Produccion%20y%20finanzas/Informe_ejecutivo.pdf) | Lo más importante del proyecto en ocho páginas: cómo se encontraron los problemas, las oportunidades con sus condiciones y su aporte al VPN, la propuesta y su arquitectura, cómo se costeó la ingeniería, de dónde sale el valor, resultados, escenarios y compuertas, personas y contrato. |
 | [Medidas organizacionales y uso del MES](Produccion%20y%20finanzas/Medidas_organizacionales.pdf) | Hallazgos con causa organizacional, medidas escogidas con una matriz de criterios, roles, quién responde por cada función del MES, procedimientos, reuniones fijas, responsables de los datos, transición del personal, formación e indicadores del uso del MES. |
-| [Casos de decisión en la pirámide](Produccion%20y%20finanzas/Casos_piramide.pdf) | Seis situaciones de la quesería recorridas del PLC a la gerencia: qué decide cada nivel, en qué plazo y qué dato entrega al siguiente; matriz de decisiones, mensajes entre niveles y lo que los casos le piden al ERP. |
+| [Casos de decisión en la pirámide](Produccion%20y%20finanzas/Casos_piramide.pdf) | Veintisiete situaciones de la quesería recorridas del PLC a la gerencia según ISA-95: ocho flujos normales y diecinueve excepciones; qué decide cada nivel, en qué plazo, qué dato entrega al siguiente y qué valor protege; mensajes entre niveles, frontera ERP–MES y lo que los casos le piden al ERP. |
+| [Levantamiento y diseño del ERP](Produccion%20y%20finanzas/Diseno_ERP.pdf) | Paquete 5.2 de la EDT: cómo se hizo el levantamiento, procesos de hoy y con el diseño, 28 requisitos funcionales con criterio de aceptación, requisitos no funcionales, datos maestros, configuración en SAP Business One, mensajes con el MES, roles, pruebas y plan del ERP de demostración. |
 | [Guía de estudio del proyecto](Produccion%20y%20finanzas/Guia_estudio_proyecto.pdf) | Todo el proyecto explicado desde cero: la empresa, IntegraMotion, las EDT, el VSM, la transformación digital, la simulación y el modelo financiero hoja por hoja, con preguntas difíciles y hoja de cifras. |
 
 ## 12.2. Oferta para la quesería
 
-La propuesta se ejecuta por etapas: diagnóstico de la planta y línea base (etapa 0); tinas instrumentadas, control de peso y metales, medición de grasa en línea y SCADA, historiador y MES ligero de la quesería (etapa 1); hiladora-moldeadora continua, CIP del circuito de quesos y venta del suero enfriado (etapa 2). Dos compuertas deciden con datos medidos si se compra la etapa 1 y la etapa 2. La celda robotizada de paletizado se diseña y se valida en RobotStudio, y su compra queda para una etapa 3.
+Al estudiar el mercado de la región encontramos la oportunidad que hace conveniente automatizar ahora: las cadenas de supermercados compran doble crema de marca propia, y Lácteos Fúquene puede ser su proveedor si da trazabilidad de cada lote, peso controlado, registros sanitarios digitales y entregas completas y a tiempo, que hoy la planta no puede dar. La automatización resuelve esas exigencias y, de paso, las pérdidas del diagnóstico.
+
+Cada supuesto que no depende de la planta está escrito como una oportunidad que encontramos, con la condición que exige, por qué la empresa la cumple, cómo se comprueba y cuánto aporta al VPN (en millones):
+
+| Oportunidad | Por qué Lácteos Fúquene la cumple | Aporte al VPN |
+|---|---|---:|
+| Contrato de marca propia con una cadena | Ya vende a cadenas; el MES, la controladora de peso y la hiladora cierran lo que la cadena exige | 128 |
+| Crédito de fomento de Bancóldex | Es mediana empresa (Decreto 957 de 2019) con capacidad de pago | 60 |
+| Prenda sobre los equipos en lugar del FNG | Tiene 6.500 millones en activos fijos y deuda de 0,8 veces el EBITDA | 87 |
+| Crédito fiscal por innovación (art. 256-1) | El corte por coagulación, la grasa en línea y el MES son desarrollo nuevo | 237 |
+| Venta del suero enfriado (opción, fuera de la oferta) | Deja 8.188 kg de suero al día, pero enfriarlo cuesta: a 45 $/kg resta 8 | −8 |
+
+Al hacer la cuenta descubrimos que el suero, a 45 $/kg, no paga el enfriador ni su energía. Queda como opción: el enfriador se compra solo si un comprador firma a 49 $/kg o más, el precio que lo paga aun sin el descuento ambiental del art. 255.
+
+La propuesta se ejecuta por etapas: diagnóstico de la planta y línea base (etapa 0); tinas instrumentadas, control de peso y metales, medición de grasa en línea y SCADA, historiador y MES ligero de la quesería (etapa 1); hiladora-moldeadora continua y CIP del circuito de quesos (etapa 2). Dos compuertas deciden con datos medidos si se compra la etapa 1 y la etapa 2. La celda robotizada de paletizado se diseña y se valida en RobotStudio, y su compra queda para una etapa 3.
 
 IntegraMotion contrata el trabajo en tres partes. Lo que paga Lácteos Fúquene es el costo de ingeniería del proyecto, en millones de pesos de 2026 sin IVA:
 
@@ -751,29 +766,32 @@ IntegraMotion contrata el trabajo en tres partes. Lo que paga Lácteos Fúquene 
 | Otrosí 2 (2028) | Ingeniería de detalle e implementación de la etapa 2 | 87,6 |
 | **Costo de ingeniería del proyecto** | | **376,0** |
 
+Por fase, la ingeniería conceptual (diagnóstico, VSM, línea base, arquitectura y modelo financiero) es el 11 % del costo; la básica (recetas ISA-88, hojas de datos, especificación funcional, BOM y cotizaciones), el 13 %; la de detalle (programas, planos de lazo, interfaces, pruebas y gemelo), el 31 %; la implementación en planta, el 19 %, y la gestión del proyecto, el 15 %. El resto son viajes e instrumentos de prueba.
+
 Cada otrosí se firma solo si se supera la compuerta anterior, y cada compuerta se mide con cifras. Si la primera no se supera, la empresa paga el contrato principal, cuya ingeniería ya recibió, no compra equipos y pierde unos 49 millones con los ahorros conservadores de la etapa 0; comprar la etapa 1 sin esa información costaría 341. Si la segunda no se supera, la etapa 1 vale 286 millones por sí sola, y un prepago de unos 22 millones en 2027 mantiene su cobertura de la deuda en 1,2. IntegraMotion hace la ingeniería, la integración y la gerencia, y no vende equipos ni hace montajes: la instalación eléctrica, hidráulica y mecánica, los planos de detalle de obra y de reubicación de equipos, el tablero, la parametrización del ERP y la calibración acreditada los hacen terceros que contrata Lácteos Fúquene, con su costo dentro de la inversión, e IntegraMotion los especifica y supervisa. La inversión en equipos sale del BOM del proyecto: 53 ítems con tag, tomados de la instrumentación de la sección 7, del modelo físico ISA-88 y de la arquitectura ISA-95 de la sección 8, cada uno con precio, origen, instalación, paquete de la EDT y madurez del precio.
 
 La implementación va en 2027 y 2028 y el proyecto se evalúa hasta 2037. Cifras en millones de pesos constantes de 2026:
 
 | Indicador | Valor |
 |---|---:|
-| Costo total del proyecto (con imprevistos) | 1.689,3 |
-| Equipos del BOM que paga la quesería, sin imprevistos | 1.053,1 |
-| Beneficio anual en régimen | 538,5 |
-| Costos operativos nuevos al año | 95,9 |
+| Costo total del proyecto (con imprevistos) | 1.589,3 |
+| Equipos del BOM que paga la quesería, sin imprevistos | 973,1 |
+| Beneficio anual en régimen | 568,1 |
+| Costos operativos nuevos al año | 76,5 |
 | Costo de capital del proyecto (pesos corrientes) | 14,7 % |
-| TIR del proyecto en pesos corrientes / constantes | 22,6 % / 17,6 % |
-| VPN | 503 |
-| VPN sin el crédito fiscal por innovación | 266 |
-| Recuperación / descontada | 4,8 / 6,7 años |
-| TIR del inversionista (65 % financiado, 7 años, 14,1 % E.A.) frente al 25 % exigido | 40,8 % |
-| Cobertura mínima del servicio de la deuda | 1,31 |
+| TIR del proyecto en pesos corrientes / constantes | 24,3 % / 19,2 % |
+| VPN | 640 |
+| VPN sin el crédito fiscal por innovación | 403 |
+| VPN sin el contrato de la cadena | 511 |
+| Recuperación / descontada | 4,7 / 6,4 años |
+| TIR del inversionista (65 % financiado, 7 años, 14,1 % E.A.) frente al 25 % exigido | 42,1 % |
+| Cobertura mínima del servicio de la deuda | 1,34 |
 
-El valor de la oferta sale sobre todo de la operación y del MES, no de la financiación: sin el crédito fiscal el VPN sigue en 266 millones. El MES resuelve la información en islas del diagnóstico (registra el estado de las máquinas, los paros y el OEE, también en los equipos antiguos, y publica la capacidad disponible en el ERP para que Ventas prometa con la capacidad real, y la orden de mantenimiento crea en el ERP la solicitud de compra del repuesto). Además, con una matriz de criterios se escogieron tres usos de sus datos: el balance de sólidos y humedad por lote (cuánto queso sale de cada litro), el costo real por lote y la mezcla óptima de los tres quesos por programación lineal, con los límites de un estudio de mercado de la región (más doble crema; poca mozzarella más, porque compite con la importada). La trazabilidad por lote queda como herramienta comercial para certificarse y entrar a cadenas exigentes. Cada hallazgo del diagnóstico de la quesería tiene su medida y su beneficio; las pérdidas de yogur y UHT que la oferta no resuelve (unos 529 millones al año a precio de venta) quedan como base de la ampliación a esas líneas. Nadie sale de la empresa. En la etapa 0, la matriz de competencias mostró un décimo hallazgo: los puestos se asignan por costumbre y a la planta le faltan dos que nadie cubre. Con la matriz y el método húngaro asignamos los dos operarios que libera la hiladora: uno al control nocturno de la incubación del yogur y otro al mantenimiento autónomo. El ERP es SAP Business One, que la empresa ya tiene: frente a Odoo, migrar costaría unos 160 millones y se pagaría en más de cinco años. Los beneficios pueden caer 25 % o la inversión subir 41 % antes de que el VPN llegue a cero. La inversión se financia con las líneas de Bancóldex para mipymes, con prenda sobre los equipos. Dentro de la oferta, IntegraMotion negocia la prenda con el banco y postula el proyecto ante Minciencias para el crédito fiscal (art. 256-1 del Estatuto Tributario). Toda empresa asume riesgos; la oferta decide antes cómo responder: el modelo tiene un plan de respuesta a los riesgos (señal, estrategia, responsable y recursos), una matriz que dice cómo se mide cada beneficio y qué no incluye, las condiciones de cada beneficio tributario y el control del contrato principal por valor ganado. Los escenarios y los supuestos están en el modelo financiero.
+El valor de la oferta sale sobre todo de la operación y del MES, no de la financiación: sin el crédito fiscal el VPN sigue en 403 millones. El contrato de la cadena entra como un segundo lote diario de doble crema con leche comprada al acopio: deja poco por litro porque la leche se compra, y su riesgo es el plazo de pago de 60 días, por eso la oferta propone pronto pago a 30 días; sin el contrato el VPN es 511 millones. El MES resuelve la información en islas del diagnóstico (registra el estado de las máquinas, los paros y el OEE, también en los equipos antiguos, y publica la capacidad disponible en el ERP para que Ventas prometa con la capacidad real, y la orden de mantenimiento crea en el ERP la solicitud de compra del repuesto). Además, con una matriz de criterios se escogieron tres usos de sus datos: el balance de sólidos y humedad por lote (cuánto queso sale de cada litro), el costo real por lote y la mezcla óptima de los tres quesos por programación lineal, con los límites de un estudio de mercado de la región (más doble crema; poca mozzarella más, porque compite con la importada). La trazabilidad por lote queda como herramienta comercial para certificarse y entrar a cadenas exigentes. Cada hallazgo del diagnóstico de la quesería tiene su medida y su beneficio; las pérdidas de yogur y UHT que la oferta no resuelve (unos 529 millones al año a precio de venta) quedan como base de la ampliación a esas líneas. Nadie sale de la empresa. En la etapa 0, la matriz de competencias mostró un décimo hallazgo: los puestos se asignan por costumbre y a la planta le faltan dos que nadie cubre. Con la matriz y el método húngaro asignamos los dos operarios que libera la hiladora: uno al control nocturno de la incubación del yogur y otro al mantenimiento autónomo. El ERP es SAP Business One, que la empresa ya tiene: frente a Odoo, migrar costaría unos 160 millones y se pagaría en más de cinco años. Los beneficios pueden caer 32 % o la inversión subir 55 % antes de que el VPN llegue a cero. La inversión se financia con las líneas de Bancóldex para mipymes, con prenda sobre los equipos. Dentro de la oferta, IntegraMotion negocia la prenda con el banco y postula el proyecto ante Minciencias para el crédito fiscal (art. 256-1 del Estatuto Tributario). Toda empresa asume riesgos; la oferta decide antes cómo responder: el modelo tiene un plan de respuesta a los riesgos (señal, estrategia, responsable y recursos), una matriz que dice cómo se mide cada beneficio y qué no incluye, las condiciones de cada beneficio tributario y el control del contrato principal por valor ganado. Los escenarios y los supuestos están en el modelo financiero.
 
 ## 12.3. Decisiones a través de la pirámide
 
-Seis situaciones de la quesería recorridas del PLC a la gerencia. La regla es la misma en todas: **cada nivel resuelve lo que puede en su plazo y sube solo el dato que el nivel de arriba necesita para decidir.** En los diagramas, las flechas son datos entre sistemas y las notas son decisiones de personas. La tabla de pasos de cada caso, con su plazo y el dato que entrega, y el catálogo de mensajes entre niveles están en el documento [Casos de decisión en la pirámide](Produccion%20y%20finanzas/Casos_piramide.pdf).
+Veintisiete situaciones de la quesería recorridas del PLC a la gerencia: ocho flujos normales, uno por cada actividad de gestión de operaciones de ISA-95 (parte 3), y diecinueve excepciones ordenadas por su origen. La regla es la misma en todas: **cada nivel resuelve lo que puede en su plazo y sube solo el dato que el nivel de arriba necesita para decidir.** En los diagramas, las flechas son datos entre sistemas y las notas son decisiones de personas. Las tablas de pasos, los diecinueve mensajes entre niveles con su categoría y su verbo de ISA-95, y la frontera entre el ERP y el MES están en el documento [Casos de decisión en la pirámide](Produccion%20y%20finanzas/Casos_piramide.pdf).
 
 | Nivel | Sistema | Quién decide | Qué decide | Plazo |
 |---|---|---|---|---|
@@ -783,10 +801,196 @@ Seis situaciones de la quesería recorridas del PLC a la gerencia. La regla es l
 | N1 | PLC-300 (CompactLogix) y controladores de los equipos | Nadie: decide la lógica programada | Parar en estado seguro, mantener los enclavamientos, no dejar avanzar una fase sin sus permisos | Milisegundos |
 | N0 | Proceso: instrumentos y actuadores | -- | Medir y actuar | Continuo |
 
-<details>
-<summary><b>Caso 1. Falla del variador de las liras durante el corte</b></summary>
+**Flujos normales**
 
-**Qué lo dispara:** El variador SC-301 (PowerFlex 525) de las liras de la tina TQ-301 se dispara por sobrecorriente en plena fase de corte de un lote de campesino. **Hallazgo:** H7 (mantenimiento correctivo) y H9 (Ventas no sabe qué máquinas fallan).
+<details>
+<summary><b>F1. Alta de un producto y de su receta</b></summary>
+
+**Qué lo dispara:** La cadena firma el contrato de marca propia: hay que crear el doble crema con su empaque y su etiqueta, sin tocar la receta de proceso. **Actividad de ISA-95:** Gestión de definiciones (producción y calidad).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over ERP: Comercial y costos crean el producto de marca propia
+  ERP->>MES: Definición del producto y su lista de materiales
+  Note over MES: Procesos crea la receta y calidad la aprueba con su firma
+  MES->>SC: Receta aprobada con su versión
+  SC->>PLC: Parámetros al despachar un lote
+  PLC->>SC: Aceptación o rechazo con motivo
+  MES->>ERP: Receta vigente para costear
+  Note over ERP: Costos fija el costo estándar, Ventas ya puede vender
+```
+
+</details>
+
+<details>
+<summary><b>F2. Asignación diaria del personal por competencias</b></summary>
+
+**Qué lo dispara:** Antes de cada turno, el MES cruza quién llegó con los puestos que pide el programa del día. **Actividad de ISA-95:** Gestión de recursos (producción).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  ERP->>MES: Personal disponible y matriz de competencias
+  MES->>MES: Asignación propuesta por el método húngaro
+  Note over MES: Jefe de quesería confirma o ajusta la asignación
+  MES->>SC: Usuarios y permisos por puesto
+  SC->>MES: Quién operó cada lote y cuánto tiempo
+  MES->>ERP: Horas por lote para nómina y costos
+  Note over ERP: Gestión humana actualiza la matriz con la formación
+```
+
+</details>
+
+<details>
+<summary><b>F3. Programa del día desde las órdenes del ERP</b></summary>
+
+**Qué lo dispara:** Cada tarde se arma el programa de la quesería para el día siguiente. **Actividad de ISA-95:** Programación detallada (producción).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over ERP: Planeador crea las órdenes con pedidos, inventario y mezcla
+  ERP->>MES: Órdenes de producción por queso y fecha
+  MES->>MES: Secuencia de lotes con tiempos del VSM
+  Note over MES: Jefe de quesería resuelve choques y aprueba
+  MES->>ERP: Órdenes confirmadas y capacidad libre
+  Note over ERP: Planeador mueve lo que no cabe, protegiendo la cadena
+  MES->>SC: Despacho de cada lote a su hora
+```
+
+</details>
+
+<details>
+<summary><b>F4. Despacho, ejecución y reporte de un lote</b></summary>
+
+**Qué lo dispara:** Llega la hora de un lote del programa aprobado. Es el recorrido normal de la sección 8 del README, aquí con las decisiones de cada nivel. **Actividad de ISA-95:** Despacho, gestión de la ejecución, recolección de datos y seguimiento (producción).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  MES->>SC: Lote B-Q1-001, RM-Q1-v3, TQ-301 y partidas reservadas
+  Note over SC: Quesero revisa y confirma el inicio
+  SC->>PLC: Solicitud de ejecución
+  PLC->>PLC: Verifica permisos y ejecuta las fases
+  PLC->>SC: Estados, mediciones y alarmas
+  Note over SC: Quesero confirma firmeza y pH
+  SC->>MES: Eventos, consumos y confirmaciones
+  MES->>MES: Cierre del lote y rendimiento frente a Van Slyke
+  MES->>ERP: Consumos y producción retenida
+```
+
+</details>
+
+<details>
+<summary><b>F5. Muestreo y liberación de un lote</b></summary>
+
+**Qué lo dispara:** Se cierra un lote: el MES pide sus muestras según el plan de muestreo. **Actividad de ISA-95:** Gestión de la ejecución y seguimiento (calidad).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  MES->>MES: Solicitud de muestras al cerrar el lote
+  Note over MES: Calidad toma muestras y registra resultados
+  MES->>MES: Comparación con la especificación
+  Note over MES: Jefe de calidad libera o retiene con motivo
+  MES->>ERP: Lote liberado y certificado
+  Note over ERP: Ventas despacha con el certificado
+```
+
+</details>
+
+<details>
+<summary><b>F6. Mantenimiento preventivo programado</b></summary>
+
+**Qué lo dispara:** La bomba P-301 llega a 2.000 horas de operación y le toca el cambio de sellos. **Actividad de ISA-95:** Programación detallada, despacho y ejecución (mantenimiento).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  SC->>MES: Horas de marcha de la P-301
+  MES->>MES: Orden preventiva con tareas y repuesto
+  MES->>ERP: Reserva o solicitud del kit de sellos
+  Note over MES: Jefe de quesería y técnico acuerdan la ventana
+  MES->>SC: Equipo en mantenimiento
+  SC->>PLC: Bloqueo del arranque
+  Note over MES: Técnico ejecuta y cierra la orden
+  MES->>ERP: Costo y horas de la orden
+  Note over ERP: Mantenimiento ajusta el plan cada mes
+```
+
+</details>
+
+<details>
+<summary><b>F7. Recepción de la leche y despacho del producto</b></summary>
+
+**Qué lo dispara:** Llega un carrotanque de la ruta de Carmen de Carupa; en la tarde se despacha un pedido de la cadena. **Actividad de ISA-95:** Gestión de la ejecución y seguimiento (inventarios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over MES: Recepción analiza el carrotanque y calidad lo acepta
+  MES->>MES: Partida de leche con ruta y análisis
+  MES->>ERP: Entrada de leche por partida
+  Note over ERP: Pago al productor por calidad
+  Note over ERP: Ventas factura el pedido de la cadena
+  ERP->>MES: Pedido a despachar
+  MES->>ERP: Lotes liberados que vencen primero
+  Note over ERP: Bodega despacha con los lotes en la remisión
+```
+
+</details>
+
+<details>
+<summary><b>F8. Cierre del turno y cierre del mes</b></summary>
+
+**Qué lo dispara:** Termina un turno; termina un mes. **Actividad de ISA-95:** Análisis de desempeño (producción, calidad, mantenimiento e inventarios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>SC: Estados de marcha, paro y falla
+  SC->>MES: Contadores y paros con causa
+  MES->>MES: OEE por máquina y turno
+  Note over MES: Reunión diaria fija acciones por causa
+  MES->>ERP: Producción y consumos del mes
+  Note over ERP: Costos cierra el costo real por queso
+  Note over ERP: Ventas y operaciones deciden la mezcla
+  Note over ERP: Gerencia revisa beneficios contra la línea base
+```
+
+</details>
+
+**Excepciones: equipos**
+
+<details>
+<summary><b>E1. Falla del variador de las liras durante el corte</b></summary>
+
+**Qué lo dispara:** El variador SC-301 (PowerFlex 525) de las liras de la tina TQ-301 se dispara por sobrecorriente en plena fase de corte de un lote de campesino. **Actividad de ISA-95:** Gestión de la ejecución y de recursos (producción y mantenimiento).
 
 ```mermaid
 sequenceDiagram
@@ -810,9 +1014,125 @@ sequenceDiagram
 </details>
 
 <details>
-<summary><b>Caso 2. Temperatura de pasteurización por debajo del límite</b></summary>
+<summary><b>E2. Falla o deriva de un instrumento</b></summary>
 
-**Qué lo dispara:** La sonda del tubo de retención del pasteurizador (operación 1.4.1) baja de 72 °C mientras pasa la leche para los quesos. **Hallazgo:** H6 (el punto crítico de control se registra en papel).
+**Qué lo dispara:** La sonda TT-301 de la tina entrega una señal fuera de rango (menos de 3,8 mA) mientras se calienta la leche. **Actividad de ISA-95:** Gestión de la ejecución (producción y mantenimiento).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: TT-301 fuera de rango, fase retenida
+  PLC->>SC: Medición inválida
+  Note over SC: Quesero mide con referencia y sigue en manual o retiene
+  SC->>MES: Lecturas manuales del lote
+  MES->>MES: Lote marcado y orden correctiva
+  Note over MES: Técnico cambia y verifica la RTD, calidad decide el lote
+  MES->>ERP: Repuesto usado y costo de la orden
+  Note over ERP: Mantenimiento ajusta el plan de calibración
+```
+
+</details>
+
+<details>
+<summary><b>E3. Falla de un servicio: el vapor</b></summary>
+
+**Qué lo dispara:** La caldera se dispara y cae la presión de vapor mientras se pasteuriza y se calientan las tinas. **Actividad de ISA-95:** Gestión de la ejecución (producción y mantenimiento).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: Desvío del pasteurizador y fases retenidas
+  PLC->>SC: Alarmas en varios equipos
+  SC->>SC: Agrupa con causa común vapor
+  Note over SC: Operadores dejan los lotes en espera
+  SC->>MES: Un solo paro con causa servicio
+  Note over MES: Jefe de producción fija el orden de recuperación
+  MES->>ERP: Lotes perdidos y capacidad reducida
+  Note over ERP: Ventas reprograma, gerencia decide respaldo si se repite
+```
+
+</details>
+
+**Excepciones: materiales**
+
+<details>
+<summary><b>E4. Falta de cuajo para un lote</b></summary>
+
+**Qué lo dispara:** Al despachar el lote de mozzarella, el MES no puede reservar el cuajo: el inventario no alcanza para la dosis de la receta o la única partida disponible está vencida. **Actividad de ISA-95:** Gestión de recursos (inventarios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  ERP->>MES: Inventario de cuajo por partida
+  MES->>MES: Reserva de cuajo rechazada, lote no despachado
+  PLC->>PLC: Dosificar no avanza sin ingredientes identificados
+  Note over MES: Jefe de quesería decide partida alterna, otro orden o esperar
+  Note over MES: Calidad autoriza la partida y ajusta la dosis en IMCU
+  MES->>ERP: Solicitud de compra urgente
+  Note over ERP: Compras compra y calidad libera en la recepción
+  Note over ERP: Planeador y gerencia recalculan el punto de reorden
+```
+
+</details>
+
+<details>
+<summary><b>E5. Leche cruda rechazada en la recepción</b></summary>
+
+**Qué lo dispara:** La prueba de antibióticos de un carrotanque de 4.000 L sale positiva. **Actividad de ISA-95:** Gestión de la ejecución (calidad e inventarios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over MES: Calidad rechaza el carrotanque con antibióticos
+  MES->>MES: Leche disponible recalculada
+  Note over MES: Jefe de producción reparte por compromisos y margen
+  MES->>ERP: Rechazo por ruta y órdenes ajustadas
+  Note over ERP: Acopio busca otra ruta, Ventas avisa a los clientes
+  Note over ERP: Gerencia, plan de calidad con el proveedor
+```
+
+</details>
+
+<details>
+<summary><b>E6. Empaque defectuoso de un proveedor</b></summary>
+
+**Qué lo dispara:** La termoformadora empieza a rechazar unidades por vacío insuficiente al cambiar a un rollo nuevo de película. **Actividad de ISA-95:** Recolección de datos y análisis de desempeño (calidad e inventarios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>SC: Rechazos por vacío insuficiente
+  Note over SC: Operador cambia a un rollo de otra partida
+  SC->>MES: Rechazos por hora
+  MES->>MES: Rechazos ligados a la partida de película
+  MES->>ERP: Partida bloqueada
+  Note over MES: Calidad decide sobre lo ya empacado
+  Note over ERP: Compras reclama con evidencia y compra al alterno
+```
+
+</details>
+
+**Excepciones: proceso y calidad**
+
+<details>
+<summary><b>E7. Temperatura de pasteurización por debajo del límite</b></summary>
+
+**Qué lo dispara:** La sonda del tubo de retención del pasteurizador (operación 1.4.1) baja de 72 °C mientras pasa la leche para los quesos. **Actividad de ISA-95:** Gestión de la ejecución y seguimiento (calidad).
 
 ```mermaid
 sequenceDiagram
@@ -834,9 +1154,9 @@ sequenceDiagram
 </details>
 
 <details>
-<summary><b>Caso 3. Lote con rendimiento fuera de la banda</b></summary>
+<summary><b>E8. Lote con rendimiento fuera de la banda</b></summary>
 
-**Qué lo dispara:** Al cerrar un lote de mozzarella, su rendimiento real queda por debajo de la banda que fijó la línea base frente al rendimiento teórico de Van Slyke. **Hallazgo:** H11 (el rendimiento se conoce al cierre del mes) y H12 (el costo se calcula con promedios).
+**Qué lo dispara:** Al cerrar un lote de mozzarella, su rendimiento real queda por debajo de la banda que fijó la línea base frente al rendimiento teórico de Van Slyke. **Actividad de ISA-95:** Análisis de desempeño (producción y calidad).
 
 ```mermaid
 sequenceDiagram
@@ -857,9 +1177,102 @@ sequenceDiagram
 </details>
 
 <details>
-<summary><b>Caso 4. Pedido urgente de doble crema</b></summary>
+<summary><b>E9. Metal detectado en la estación E18</b></summary>
 
-**Qué lo dispara:** Una cadena pide 100 kg adicionales de doble crema para entregar dentro de dos días. **Hallazgo:** H9 (Ventas promete sin ver la planta) y H12 (la mezcla se decide por costumbre).
+**Qué lo dispara:** El detector de metales de la E18 expulsa dos unidades de doble crema en diez minutos. **Actividad de ISA-95:** Gestión de la ejecución y seguimiento (calidad).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: E18 expulsa y detiene la banda
+  PLC->>SC: Detecciones de metal
+  Note over SC: Operador guarda lo expulsado y verifica con patrones
+  SC->>MES: Detecciones con hora y lote
+  MES->>MES: Retiene desde la última verificación correcta
+  Note over MES: Calidad y mantenimiento buscan la fuente
+  MES->>ERP: Inventario bloqueado o destruido
+```
+
+</details>
+
+<details>
+<summary><b>E10. Unidades fuera de peso en la estación E18</b></summary>
+
+**Qué lo dispara:** El peso promedio de las unidades de 500 g de campesino baja turno a turno y empiezan los rechazos por bajo peso. **Actividad de ISA-95:** Gestión de la ejecución y análisis de desempeño (calidad).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: E18 pesa y expulsa bajo peso
+  PLC->>SC: Pesos y rechazos
+  SC->>SC: Tendencia del promedio
+  Note over SC: Operador ajusta el corte y verifica con patrones
+  SC->>MES: Peso y rechazos por lote
+  Note over MES: Calidad verifica el contenido declarado
+  MES->>ERP: Sobrepeso del mes
+  Note over ERP: Costos mide el beneficio de H3
+```
+
+</details>
+
+<details>
+<summary><b>E11. Queja de un cliente o retiro de producto</b></summary>
+
+**Qué lo dispara:** La cadena reporta un empaque de doble crema con un cuerpo extraño e informa el lote impreso. **Actividad de ISA-95:** Seguimiento y análisis de desempeño (calidad).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over ERP: Servicio al cliente registra la queja con el lote
+  ERP->>MES: Consulta de trazabilidad del lote
+  MES->>ERP: Hacia atrás y hacia adelante en menos de 4 h
+  Note over MES: Jefe de calidad define el alcance
+  Note over ERP: Comité decide el retiro y avisa al INVIMA
+  ERP->>MES: Bloqueo de los lotes afectados
+  Note over MES: Causa raíz y acción correctiva
+```
+
+</details>
+
+**Excepciones: personal**
+
+<details>
+<summary><b>E12. Falta el quesero de un turno</b></summary>
+
+**Qué lo dispara:** El quesero del turno de la mañana avisa una incapacidad de tres días. **Actividad de ISA-95:** Gestión de recursos (producción).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over ERP: Gestión humana registra la incapacidad
+  ERP->>MES: Personal disponible
+  MES->>MES: Reemplazos calificados según la matriz
+  Note over MES: Jefe de quesería asigna el reemplazo
+  MES->>SC: Permisos del puesto al reemplazo
+  SC->>MES: Quién operó cada lote
+  Note over ERP: Gestión humana forma un segundo quesero si se repite
+```
+
+</details>
+
+**Excepciones: demanda**
+
+<details>
+<summary><b>E13. Pedido urgente de doble crema</b></summary>
+
+**Qué lo dispara:** Una cadena pide 100 kg adicionales de doble crema para entregar dentro de dos días. **Actividad de ISA-95:** Programación detallada (producción e inventarios).
 
 ```mermaid
 sequenceDiagram
@@ -884,9 +1297,9 @@ sequenceDiagram
 </details>
 
 <details>
-<summary><b>Caso 5. Falta de cuajo para un lote</b></summary>
+<summary><b>E14. Cancelación de un pedido con producto que vence</b></summary>
 
-**Qué lo dispara:** Al despachar el lote de mozzarella, el MES no puede reservar el cuajo: el inventario no alcanza para la dosis de la receta o la única partida disponible está vencida. **Hallazgo:** H9 (la planeación no ve la planta) y la gestión de inventarios del ERP.
+**Qué lo dispara:** Un cliente mayorista cancela 200 kg de campesino, que vence en 15 a 20 días. **Actividad de ISA-95:** Programación detallada (inventarios y producción).
 
 ```mermaid
 sequenceDiagram
@@ -894,22 +1307,43 @@ sequenceDiagram
   participant SC as N2 · Ignition
   participant MES as N3 · MES
   participant ERP as N4 · ERP
-  ERP->>MES: Inventario de cuajo por partida
-  MES->>MES: Reserva de cuajo rechazada, lote no despachado
-  PLC->>PLC: Dosificar no avanza sin ingredientes identificados
-  Note over MES: Jefe de quesería decide partida alterna, otro orden o esperar
-  Note over MES: Calidad autoriza la partida y ajusta la dosis en IMCU
-  MES->>ERP: Solicitud de compra urgente
-  Note over ERP: Compras compra y calidad libera en la recepción
-  Note over ERP: Planeador y gerencia recalculan el punto de reorden
+  Note over ERP: Ventas registra la cancelación
+  ERP->>ERP: Campesino sin destino con su vencimiento
+  Note over ERP: Planeador decide reasignar, vender con descuento o producir menos
+  ERP->>MES: Órdenes ajustadas
+  MES->>MES: Menos campesino, más doble crema dentro de límites
+  Note over ERP: Comercial revisa la cláusula de cancelación
 ```
 
 </details>
 
 <details>
-<summary><b>Caso 6. Caída del enlace con el MES y el ERP</b></summary>
+<summary><b>E15. Llega más o menos leche de la planeada</b></summary>
 
-**Qué lo dispara:** El servidor del MES (SRV-01) o la red entre la planta y el ERP dejan de responder durante el turno. **Hallazgo:** H6 y H9: cuando todo depende del dato, hay que prever qué pasa si el dato no llega.
+**Qué lo dispara:** Por las lluvias, el acopio del día llega con 1.500 L menos de lo planeado (o, en verano, con 2.000 L más). **Actividad de ISA-95:** Programación detallada (inventarios y producción).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over MES: Recepción registra la leche real del día
+  MES->>MES: Mezcla del día por programación lineal
+  Note over MES: Jefe de producción y planeador aprueban el reparto
+  MES->>ERP: Órdenes ajustadas a la leche real
+  Note over ERP: Si sobra, se vende cruda antes de producir sin venta
+  Note over ERP: Acopio y gerencia revisan la estacionalidad
+```
+
+</details>
+
+**Excepciones: información**
+
+<details>
+<summary><b>E16. Caída del enlace con el MES y el ERP</b></summary>
+
+**Qué lo dispara:** El servidor del MES (SRV-01) o la red entre la planta y el ERP dejan de responder durante el turno. **Actividad de ISA-95:** Recolección de datos (todas).
 
 ```mermaid
 sequenceDiagram
@@ -931,12 +1365,166 @@ sequenceDiagram
 
 </details>
 
-| Caso | N1 · PLC | N2 · Operador | N3 · Planta (MES) | N4 · Gestión (ERP) |
-|---|---|---|---|---|
-| C1. Falla del variador de las liras durante el corte | Detiene las liras y deja la fase en espera | Rearmar o cortar a mano | Reparar o cambiar; mover o aplazar el lote | Avisar al cliente; reponer el repuesto; reparar o reemplazar |
-| C2. Temperatura de pasteurización por debajo del límite | Desvía la leche | Corregir o parar el pasteurizador | Liberar o retener los lotes | Bloquear inventario; acción si se repite |
-| C3. Lote con rendimiento fuera de la banda | Registra el lote | Confirmar pH y humedad | Corregir el siguiente lote; cambiar la receta | Costo real; mezcla del mes |
-| C4. Pedido urgente de doble crema | Verifica capacidad de la tina | -- | Despachar los lotes; muestreo | Aceptar el pedido; mover leche entre quesos |
-| C5. Falta de cuajo para un lote | No deja dosificar | -- | Partida alterna, otro orden o esperar | Compra urgente; punto de reorden |
-| C6. Caída del enlace con el MES y el ERP | Sigue con enclavamientos locales | Guardar y reenviar datos | Terminar lotes y pasar a papel; restablecer | No prometer sin dato; invertir en redundancia |
+<details>
+<summary><b>E17. Dato inconsistente entre el MES y el ERP</b></summary>
 
+**Qué lo dispara:** El ERP rechaza un reporte de consumo de cultivo porque dejaría el inventario en negativo. **Actividad de ISA-95:** Recolección de datos y seguimiento (inventarios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  MES->>ERP: Consumo de cultivo del lote
+  ERP->>MES: Rechazo, inventario insuficiente
+  MES->>MES: Mensaje guardado en error
+  Note over MES: Usuario clave busca la causa
+  Note over ERP: Bodega cuenta y registra la recepción faltante
+  MES->>ERP: Reenvío con el mismo identificador
+  Note over ERP: Costos revisa los errores del mes
+```
+
+</details>
+
+<details>
+<summary><b>E18. Acceso no autorizado a la red de planta</b></summary>
+
+**Qué lo dispara:** El firewall FW-01 detecta un intento de conexión desde la red de oficinas al servidor del SCADA. **Actividad de ISA-95:** Gestión de recursos (sistemas) (todas).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over MES: Firewall bloquea el acceso y avisa a sistemas
+  Note over MES: Sistemas aísla la red de planta
+  PLC->>PLC: Sigue con su lógica local
+  PLC->>SC: Estados y mediciones dentro de la planta
+  Note over SC: Jefe de quesería pasa al respaldo manual si hace falta
+  Note over MES: Sistemas revisa, cambia claves y reconecta
+  MES->>ERP: Datos pendientes al reconectar
+  Note over ERP: Gerencia aprueba mejoras de seguridad
+```
+
+</details>
+
+**Excepciones: seguridad**
+
+<details>
+<summary><b>E19. Paro de emergencia o accidente en el hilado</b></summary>
+
+**Qué lo dispara:** Un operario se quema con agua del hilado y su compañero oprime el paro de emergencia de la hiladora. **Actividad de ISA-95:** Gestión de la ejecución (producción).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: Paro por el circuito de seguridad
+  PLC->>SC: Evento de paro de emergencia
+  Note over SC: Brigada atiende y asegura el área
+  SC->>MES: Paro con causa seguridad
+  Note over MES: Jefe de producción decide reanudar y el lote
+  Note over MES: Seguridad y salud reporta e investiga
+  MES->>ERP: Costo del paro y del accidente
+  Note over ERP: Gerencia aprueba acciones correctivas
+```
+
+</details>
+
+| Función de ISA-95 | ERP (nivel 4) | MES (nivel 3) | Casos |
+|---|---|---|---|
+| 1.0 Procesamiento de pedidos | Pedidos, contrato de la cadena, promesa con la capacidad publicada | Publica la capacidad disponible | F7, E13, E14 |
+| 2.0 Programación de la producción | Plan semanal y órdenes por queso y fecha | Programa detallado del día por tina, hiladora y CIP | F3, E15 |
+| 3.0 Control de la producción | -- | Despacho, ejecución, recetas con versión, paros y OEE, con el SCADA y el PLC | F1, F4, F8, E1, E2, E3 |
+| 4.0 Control de materiales y energía | Inventario de insumos y punto de reorden | Reserva por lote, consumo real, partida de leche | F7, E4, E5, E17 |
+| 5.0 Compras | Solicitud, aprobación por monto, orden de compra y recepción | Crea la solicitud desde la orden de mantenimiento o la reserva fallida | F6, E1, E4, E6 |
+| 6.0 Aseguramiento de calidad | Especificación del producto, bloqueo de inventario, certificado al cliente | Muestreo, resultados, liberación y trazabilidad por lote | F5, E7, E8, E9, E10, E11 |
+| 7.0 Inventario de producto | Disponible, vencimientos y despachos | Lotes liberados y salida de lo que vence primero | F7, E14 |
+| 8.0 Costos | Costo real por lote y por queso, merma por causa | Consumos y horas reales de cada lote | F8, E8 |
+| 9.0 Despachos | Remisión y factura con los lotes | -- | F7 |
+| 10.0 Mantenimiento | Costo de repuestos y órdenes, tiempo medio entre fallas para la gerencia | Órdenes preventivas y correctivas, contador de horas, registro de fallas | F6, E1, E2, E3 |
+| Ingeniería y desarrollo | Lista de materiales del producto | Receta maestra con su versión, aprobada por calidad | F1, E8 |
+| Gestión humana (fuera del modelo) | Nómina, novedades y matriz de competencias | Asignación por puesto y horas por lote | F2, E12 |
+
+## 12.4. Diseño del ERP
+
+Levantamiento y diseño funcional del ERP de la quesería (paquete 5.2 de la EDT). Lácteos Fúquene conserva SAP Business One, que hoy usa solo para facturar e inventariar; el diseño activa la producción, los lotes, el MRP, las compras con aprobación y los costos por centro, y lo conecta con el MES por un adaptador en Node-RED, a través del firewall entre la red corporativa y la de planta. El detalle está en el documento [Levantamiento y diseño del ERP](Produccion%20y%20finanzas/Diseno_ERP.pdf).
+
+```mermaid
+flowchart TB
+    subgraph CORP["Red corporativa"]
+        ERP["ERP · SAP Business One<br/>ventas, compras, inventario por lote, producción, costos"]
+    end
+    FW{{"Firewall entre zonas · IEC 62443"}}
+    subgraph PLANTA["Red de planta"]
+        NR["Adaptador de integración · Node-RED<br/>cola, reintento y registro de errores"]
+        MES["MES de la quesería · Ignition con PostgreSQL<br/>lotes, recetas, calidad, paros"]
+        SC["SCADA e historiador · Ignition"]
+        PLC["PLC y equipos"]
+    end
+    ERP <-->|"Service Layer · REST"| FW
+    FW <--> NR
+    NR <-->|"mensajes JSON por lote"| MES
+    MES <--> SC
+    SC <-->|"OPC UA"| PLC
+```
+
+| Proceso | Hoy | Con el diseño |
+|---|---|---|
+| Pedido a cobro | Ventas promete sin saber qué máquinas fallan; el 1 % de las ventas de quesos sale tarde o incompleto y se coloca con 30 % de descuento (H9). Factura en SAP sin lotes. | Pedido con fecha prometida contra inventario liberado y capacidad publicada por el MES; remisión con lotes; contrato de la cadena con pronto pago. |
+| Plan a orden | Plan semanal en Excel; el del día se arma con lo que se sabe en la mañana. | Plan semanal con MRP en el ERP; órdenes por queso y fecha que bajan al MES y vuelven confirmadas o ajustadas. |
+| Leche a pago | Recepción en planillas; liquidación a productores con análisis por ruta en hojas sueltas. | Cada ruta entra como partida con sus análisis desde el MES; liquidación por calidad reproducible. |
+| Lote a costo | Cada queso se costea con el promedio de la planta; la mezcla de leche se decide por costumbre (H12). Producción y consumos en papel (H6). | Consumos, producción, horas y estado de calidad de cada lote suben del MES; costo real por lote y por queso al día siguiente. |
+| Compra de insumos y repuestos | El repuesto se pide cuando la máquina ya paró; la solicitud va por correo. | La orden de mantenimiento o la reserva fallida del MES crea la solicitud de compra; aprobación por monto; recepción con liberación de calidad. |
+| Calidad, bloqueo y retiro | La liberación se registra en papel; no hay trazabilidad de lote a proveedor (H6). | El MES bloquea o libera el lote en el ERP; la consulta de trazabilidad da proveedores y clientes de un lote en minutos. |
+| Cierre de mes | Cierre con datos de papel pasados a Excel; hora y media diaria de digitación (H9). | Cierre conciliado con el MES; merma por causa; seguimiento de los beneficios del proyecto. |
+
+```mermaid
+flowchart TB
+    subgraph A["ERP · del pedido a la orden"]
+        direction LR
+        P1["Pedido del cliente"] --> P2{"¿Inventario liberado<br/>o capacidad?"}
+        P2 -->|sí| P3["Fecha prometida"]
+        P2 -->|no| P4["Otra fecha<br/>o sustituto"]
+        P3 --> P5["Plan semanal<br/>con MRP"]
+        P5 --> P6["Orden de producción<br/>OP-Q2-014"]
+    end
+    subgraph B["MES · de la orden al lote"]
+        direction LR
+        M1["Programa del día<br/>y confirmación"] --> M2["Despacho del lote<br/>B-Q2-031"]
+        M2 --> M3["Ejecución y cierre<br/>del lote"]
+        M3 --> M4{"Calidad:<br/>¿cumple?"}
+        M4 -->|retiene| Q["Bloqueo<br/>del lote"]
+    end
+    subgraph C["ERP · del lote al costo y al cliente"]
+        direction LR
+        P9["Consumos y producción<br/>del lote"] --> P10["Costo real<br/>del lote"]
+        P11["Lote liberado"] --> P12["Remisión con lote<br/>y factura"]
+    end
+    A --> B
+    B --> C
+```
+
+El diseño tiene 28 requisitos funcionales (21 obligatorios), cada uno con su origen en un caso de la pirámide o un hallazgo y un criterio de aceptación medible, y 8 no funcionales (seguridad por zonas según IEC 62443, cola y reintento si cae el ERP, mensajes sin duplicados, tiempos y auditoría). Los maestros usan los mismos identificadores del MES (OP-Q1-001, B-Q1-001, RM-Q1-v3, TQ-301). Estos son los mensajes que cruzan entre el MES y el ERP:
+
+| Mensaje | Sentido | Verbo ISA-95 | Objeto en SAP Business One |
+|---|---|---|---|
+| Definición del producto | ERP → MES | PROCESS | ProductTrees |
+| Personal disponible | ERP → MES | SYNC | -- (gestión humana) |
+| Orden de producción | ERP → MES | PROCESS | ProductionOrders |
+| Confirmación de órdenes | MES → ERP | ACKNOWLEDGE | ProductionOrders (estado) |
+| Capacidad disponible | MES → ERP | SYNC | Recursos (campo de disponibilidad) |
+| Reserva de materiales | MES ↔ ERP | GET y RESPOND | Disponibilidad por lote |
+| Partida de leche | MES → ERP | PROCESS | PurchaseDeliveryNotes |
+| Consumos y producción | MES → ERP | PROCESS | InventoryGenExits e InventoryGenEntries |
+| Resultado y liberación | Calidad → MES → ERP | SYNC | BatchNumberDetails (estado) |
+| Bloqueo de inventario | MES → ERP | CHANGE | BatchNumberDetails (estado) |
+| Consulta de trazabilidad | ERP → MES | GET y SHOW | -- |
+| Solicitud de compra | MES → ERP | PROCESS | PurchaseRequests |
+| Horas por lote | MES → ERP | PROCESS | Campo de usuario en la orden |
+
+Para mostrarlo funcionando se monta un ERP de demostración en Odoo Community con Node-RED, que repite el mismo diseño (maestros, documentos y mensajes) y recorre seis casos de la pirámide: F3 (programa del día desde las órdenes del erp), F4 (despacho, ejecución y reporte del lote), F7 (recepción de leche y despacho), E1 (falla de una tina), E11 (retiro de producto), F6 (preventivo con repuesto).
