@@ -734,6 +734,8 @@ Los resultados están condicionados por los parámetros de entrada, la lógica d
 | [Informe de cuadros de la oferta](Produccion%20y%20finanzas/Informe_oferta_cuadros.pdf) | Los cuadros principales del modelo para presentar la oferta: cifras clave, contratos, presupuesto, control del contrato principal por valor ganado, quién hace qué, BOM, hallazgos, beneficios y cómo se mide cada uno, flujo, financiación, beneficios tributarios, escenarios y plan de respuesta a los riesgos. |
 | [Minuta del contrato](Produccion%20y%20finanzas/Minuta_contrato_IntegraMotion.pdf) | Minuta académica del contrato principal y sus dos otrosíes, con sus cuatro anexos: actividades, horas y criterios de aceptación medibles; tarifas por rol; cronograma, curva S e hitos de pago; y quién hace cada trabajo. Cada entregable se acepta solo contra su criterio, y las compuertas se miden con cifras. |
 | [Informe a la Junta Directiva](Produccion%20y%20finanzas/Informe_junta_directiva.pdf) | Informe ejecutivo de cuatro páginas para la junta de Lácteos Fúquene: decisiones que se piden, cifras clave del modelo, de dónde sale el valor, flujo de caja, financiación, escenarios, compuertas, personas y calendario. |
+| [Medidas organizacionales y uso del MES](Produccion%20y%20finanzas/Medidas_organizacionales.pdf) | Hallazgos con causa organizacional, medidas escogidas con una matriz de criterios, roles, quién responde por cada función del MES, procedimientos, reuniones fijas, responsables de los datos, transición del personal, formación e indicadores del uso del MES. |
+| [Casos de decisión en la pirámide](Produccion%20y%20finanzas/Casos_piramide.pdf) | Seis situaciones de la quesería recorridas del PLC a la gerencia: qué decide cada nivel, en qué plazo y qué dato entrega al siguiente; matriz de decisiones, mensajes entre niveles y lo que los casos le piden al ERP. |
 | [Guía de estudio del proyecto](Produccion%20y%20finanzas/Guia_estudio_proyecto.pdf) | Todo el proyecto explicado desde cero: la empresa, IntegraMotion, las EDT, el VSM, la transformación digital, la simulación y el modelo financiero hoja por hoja, con preguntas difíciles y hoja de cifras. |
 
 ## 12.2. Oferta para la quesería
@@ -768,3 +770,173 @@ La implementación va en 2027 y 2028 y el proyecto se evalúa hasta 2037. Cifras
 | Cobertura mínima del servicio de la deuda | 1,31 |
 
 El valor de la oferta sale sobre todo de la operación y del MES, no de la financiación: sin el crédito fiscal el VPN sigue en 266 millones. El MES resuelve la información en islas del diagnóstico (registra el estado de las máquinas, los paros y el OEE, también en los equipos antiguos, y publica la capacidad disponible en el ERP para que Ventas prometa con la capacidad real, y la orden de mantenimiento crea en el ERP la solicitud de compra del repuesto). Además, con una matriz de criterios se escogieron tres usos de sus datos: el balance de sólidos y humedad por lote (cuánto queso sale de cada litro), el costo real por lote y la mezcla óptima de los tres quesos por programación lineal, con los límites de un estudio de mercado de la región (más doble crema; poca mozzarella más, porque compite con la importada). La trazabilidad por lote queda como herramienta comercial para certificarse y entrar a cadenas exigentes. Cada hallazgo del diagnóstico de la quesería tiene su medida y su beneficio; las pérdidas de yogur y UHT que la oferta no resuelve (unos 529 millones al año a precio de venta) quedan como base de la ampliación a esas líneas. Nadie sale de la empresa. En la etapa 0, la matriz de competencias mostró un décimo hallazgo: los puestos se asignan por costumbre y a la planta le faltan dos que nadie cubre. Con la matriz y el método húngaro asignamos los dos operarios que libera la hiladora: uno al control nocturno de la incubación del yogur y otro al mantenimiento autónomo. El ERP es SAP Business One, que la empresa ya tiene: frente a Odoo, migrar costaría unos 160 millones y se pagaría en más de cinco años. Los beneficios pueden caer 25 % o la inversión subir 41 % antes de que el VPN llegue a cero. La inversión se financia con las líneas de Bancóldex para mipymes, con prenda sobre los equipos. Dentro de la oferta, IntegraMotion negocia la prenda con el banco y postula el proyecto ante Minciencias para el crédito fiscal (art. 256-1 del Estatuto Tributario). Toda empresa asume riesgos; la oferta decide antes cómo responder: el modelo tiene un plan de respuesta a los riesgos (señal, estrategia, responsable y recursos), una matriz que dice cómo se mide cada beneficio y qué no incluye, las condiciones de cada beneficio tributario y el control del contrato principal por valor ganado. Los escenarios y los supuestos están en el modelo financiero.
+
+## 12.3. Decisiones a través de la pirámide
+
+Seis situaciones de la quesería recorridas del PLC a la gerencia. La regla es la misma en todas: **cada nivel resuelve lo que puede en su plazo y sube solo el dato que el nivel de arriba necesita para decidir.** En los diagramas, las flechas son datos entre sistemas y las notas son decisiones de personas. La tabla de pasos de cada caso, con su plazo y el dato que entrega, y el catálogo de mensajes entre niveles están en el documento [Casos de decisión en la pirámide](Produccion%20y%20finanzas/Casos_piramide.pdf).
+
+| Nivel | Sistema | Quién decide | Qué decide | Plazo |
+|---|---|---|---|---|
+| N4 | ERP (SAP Business One) | Gerencia, Ventas, planeación, compras y costos | Qué se vende y se produce, qué se compra, cuánto cuesta y en qué se invierte | Días a meses |
+| N3 | MES de la quesería (Ignition con PostgreSQL) | Jefe de quesería, calidad, técnico de mantenimiento | Qué lote va en qué tina y cuándo, qué se libera o se retiene, qué se repara primero | Minutos a un turno |
+| N2 | SCADA (Ignition) e historiador | Quesero y operadores | Cómo responder a una alarma: seguir, pasar a manual o retener | Segundos a minutos |
+| N1 | PLC-300 (CompactLogix) y controladores de los equipos | Nadie: decide la lógica programada | Parar en estado seguro, mantener los enclavamientos, no dejar avanzar una fase sin sus permisos | Milisegundos |
+| N0 | Proceso: instrumentos y actuadores | -- | Medir y actuar | Continuo |
+
+<details>
+<summary><b>Caso 1. Falla del variador de las liras durante el corte</b></summary>
+
+**Qué lo dispara:** El variador SC-301 (PowerFlex 525) de las liras de la tina TQ-301 se dispara por sobrecorriente en plena fase de corte de un lote de campesino. **Hallazgo:** H7 (mantenimiento correctivo) y H9 (Ventas no sabe qué máquinas fallan).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: Falla de SC-301, liras detenidas, fase Cortar en espera
+  PLC->>SC: Estado de la fase y código de falla
+  Note over SC: Quesero decide rearmar una vez o cortar a mano
+  SC->>MES: Paro de TQ-301 y corte manual del lote
+  MES->>MES: Orden de mantenimiento correctivo
+  Note over MES: Técnico decide reparar o cambiar el variador
+  Note over MES: Jefe de quesería decide mover o aplazar el siguiente lote
+  MES->>ERP: Capacidad del día recalculada
+  Note over ERP: Ventas decide cubrir con inventario o avisar al cliente hoy
+  MES->>ERP: Solicitud para reponer el variador de reserva
+  Note over ERP: Gerencia, cada mes, decide reparar o reemplazar según las fallas
+```
+
+</details>
+
+<details>
+<summary><b>Caso 2. Temperatura de pasteurización por debajo del límite</b></summary>
+
+**Qué lo dispara:** La sonda del tubo de retención del pasteurizador (operación 1.4.1) baja de 72 °C mientras pasa la leche para los quesos. **Hallazgo:** H6 (el punto crítico de control se registra en papel).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · Pasteurizador
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>PLC: Retención bajo 72 °C, válvula de desvío al tanque de balance
+  PLC->>SC: Temperatura y posición de la válvula
+  Note over SC: Operador busca la causa y decide corregir o parar
+  SC->>MES: Desviación del punto crítico con su duración
+  MES->>MES: Partidas y lotes de esa ventana en revisión
+  Note over MES: Calidad decide liberar o retener con el registro
+  MES->>ERP: Lotes retenidos bloqueados
+  Note over ERP: Ventas reprograma, merma con su causa
+  Note over ERP: Gerencia, cada mes, decide la acción si se repite
+```
+
+</details>
+
+<details>
+<summary><b>Caso 3. Lote con rendimiento fuera de la banda</b></summary>
+
+**Qué lo dispara:** Al cerrar un lote de mozzarella, su rendimiento real queda por debajo de la banda que fijó la línea base frente al rendimiento teórico de Van Slyke. **Hallazgo:** H11 (el rendimiento se conoce al cierre del mes) y H12 (el costo se calcula con promedios).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  PLC->>SC: Leche cargada, temperaturas, corte y peso
+  SC->>MES: Eventos de fase y confirmaciones
+  MES->>MES: Rendimiento real frente a Van Slyke
+  Note over MES: Jefe de quesería decide la corrección del siguiente lote
+  Note over MES: Si se repite, procesos propone receta nueva y calidad aprueba
+  MES->>SC: Receta RM-Q3-v4 para los lotes nuevos
+  MES->>ERP: Producción, consumos y costo real del lote
+  Note over ERP: Costos cierra el mes, la reunión mensual decide la mezcla
+```
+
+</details>
+
+<details>
+<summary><b>Caso 4. Pedido urgente de doble crema</b></summary>
+
+**Qué lo dispara:** Una cadena pide 100 kg adicionales de doble crema para entregar dentro de dos días. **Hallazgo:** H9 (Ventas promete sin ver la planta) y H12 (la mezcla se decide por costumbre).
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over ERP: Ventas registra el pedido de 100 kg de doble crema
+  MES->>ERP: Capacidad publicada de tinas e hiladora
+  Note over ERP: Planeador mueve 375 L diarios del campesino al doble crema
+  Note over ERP: Gerente comercial decide aceptar con su margen
+  ERP->>MES: Órdenes de producción ajustadas
+  Note over MES: Jefe de quesería despacha los lotes, calidad programa el muestreo
+  MES->>SC: Lote TQ-302 de 3.375 L con RM-Q2
+  SC->>PLC: Solicitud de ejecución
+  PLC->>SC: Fases cumplidas
+  SC->>MES: Eventos y cantidades
+  MES->>ERP: Producción liberada
+  Note over ERP: Ventas despacha y factura
+```
+
+</details>
+
+<details>
+<summary><b>Caso 5. Falta de cuajo para un lote</b></summary>
+
+**Qué lo dispara:** Al despachar el lote de mozzarella, el MES no puede reservar el cuajo: el inventario no alcanza para la dosis de la receta o la única partida disponible está vencida. **Hallazgo:** H9 (la planeación no ve la planta) y la gestión de inventarios del ERP.
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  ERP->>MES: Inventario de cuajo por partida
+  MES->>MES: Reserva de cuajo rechazada, lote no despachado
+  PLC->>PLC: Dosificar no avanza sin ingredientes identificados
+  Note over MES: Jefe de quesería decide partida alterna, otro orden o esperar
+  Note over MES: Calidad autoriza la partida y ajusta la dosis en IMCU
+  MES->>ERP: Solicitud de compra urgente
+  Note over ERP: Compras compra y calidad libera en la recepción
+  Note over ERP: Planeador y gerencia recalculan el punto de reorden
+```
+
+</details>
+
+<details>
+<summary><b>Caso 6. Caída del enlace con el MES y el ERP</b></summary>
+
+**Qué lo dispara:** El servidor del MES (SRV-01) o la red entre la planta y el ERP dejan de responder durante el turno. **Hallazgo:** H6 y H9: cuando todo depende del dato, hay que prever qué pasa si el dato no llega.
+
+```mermaid
+sequenceDiagram
+  participant PLC as N1 · PLC
+  participant SC as N2 · Ignition
+  participant MES as N3 · MES
+  participant ERP as N4 · ERP
+  Note over MES: Servidor o red fuera de servicio
+  PLC->>PLC: Fases en curso terminan con enclavamientos locales
+  PLC->>SC: Estados y mediciones
+  SC->>SC: Historiador guarda en disco local
+  Note over SC: Jefe de quesería decide terminar lotes y pasar a papel
+  Note over ERP: Capacidad marcada sin actualizar, Ventas no promete
+  Note over MES: Sistemas restablece el servicio
+  SC->>MES: Eventos guardados, sin duplicados
+  Note over MES: Papel cargado en 24 h, calidad libera esos lotes
+  MES->>ERP: Consumos y producción pendientes
+```
+
+</details>
+
+| Caso | N1 · PLC | N2 · Operador | N3 · Planta (MES) | N4 · Gestión (ERP) |
+|---|---|---|---|---|
+| C1. Falla del variador de las liras durante el corte | Detiene las liras y deja la fase en espera | Rearmar o cortar a mano | Reparar o cambiar; mover o aplazar el lote | Avisar al cliente; reponer el repuesto; reparar o reemplazar |
+| C2. Temperatura de pasteurización por debajo del límite | Desvía la leche | Corregir o parar el pasteurizador | Liberar o retener los lotes | Bloquear inventario; acción si se repite |
+| C3. Lote con rendimiento fuera de la banda | Registra el lote | Confirmar pH y humedad | Corregir el siguiente lote; cambiar la receta | Costo real; mezcla del mes |
+| C4. Pedido urgente de doble crema | Verifica capacidad de la tina | -- | Despachar los lotes; muestreo | Aceptar el pedido; mover leche entre quesos |
+| C5. Falta de cuajo para un lote | No deja dosificar | -- | Partida alterna, otro orden o esperar | Compra urgente; punto de reorden |
+| C6. Caída del enlace con el MES y el ERP | Sigue con enclavamientos locales | Guardar y reenviar datos | Terminar lotes y pasar a papel; restablecer | No prometer sin dato; invertir en redundancia |
+
