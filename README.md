@@ -726,25 +726,44 @@ Los resultados están condicionados por los parámetros de entrada, la lógica d
 
 | Documento | Contenido |
 |---|---|
-| [Documento del caso](Produccion%20y%20finanzas/Documento_del_caso.pdf) | Lácteos Fúquene (operación, estados financieros, hallazgos), entorno del sector, normas que condicionan el proyecto, IntegraMotion (constitución, normas, cómo y cuánto cobra), matriz de selección de la línea y alcance preliminar de la oferta. |
+| [Documento del caso](Produccion%20y%20finanzas/Documento_del_caso.pdf) | Lácteos Fúquene (operación, estados financieros, hallazgos), entorno del sector, normas que condicionan el proyecto, IntegraMotion (constitución, normas, cómo y cuánto cobra), matriz de selección de la línea, alcance de la oferta y BOM. |
 | [EDT del proceso productivo](Produccion%20y%20finanzas/EDT_proceso_productivo.pdf) | Desglose de las operaciones de las tres líneas, nivel de automatización actual y propuesto para la quesería, recursos y cuellos de botella. |
 | [VSM de las líneas](Produccion%20y%20finanzas/VSM_lineas.pdf) | Mapas de flujo de valor del campesino, los hilados, el yogur y el UHT; recursos compartidos, OEE de los equipos de fin de línea e indicadores por familia. |
-| [Modelo financiero de la quesería](Produccion%20y%20finanzas/Modelo_financiero_queseria.xlsx) | Inversión, beneficios, flujo de caja a 10 años, financiación, escenarios y modelo de negocio de IntegraMotion. |
+| [Modelo financiero de la quesería](Produccion%20y%20finanzas/Modelo_financiero_queseria.xlsx) | Supuestos, BOM del proyecto enlazado a la inversión, beneficios con su respaldo, flujo de caja de 2027 a 2037, crédito, escenarios, análisis de riesgo, compuertas, efecto en la empresa y costo de la ingeniería de IntegraMotion por capas, por contrato y por paquete de la EDT, y una hoja Resumen con los cuadros que se presentan. |
+| [Informe de cuadros de la oferta](Produccion%20y%20finanzas/Informe_oferta_cuadros.pdf) | Los cuadros principales del modelo para presentar la oferta: cifras clave, contratos, presupuesto, control del contrato principal por valor ganado, quién hace qué, BOM, hallazgos, beneficios y cómo se mide cada uno, flujo, financiación, beneficios tributarios, escenarios y plan de respuesta a los riesgos. |
+| [Minuta del contrato](Produccion%20y%20finanzas/Minuta_contrato_IntegraMotion.pdf) | Minuta académica del contrato principal y sus dos otrosíes, con sus cuatro anexos: actividades, horas y criterios de aceptación medibles; tarifas por rol; cronograma, curva S e hitos de pago; y quién hace cada trabajo. Cada entregable se acepta solo contra su criterio, y las compuertas se miden con cifras. |
+| [Informe a la Junta Directiva](Produccion%20y%20finanzas/Informe_junta_directiva.pdf) | Informe ejecutivo de cuatro páginas para la junta de Lácteos Fúquene: decisiones que se piden, cifras clave del modelo, de dónde sale el valor, flujo de caja, financiación, escenarios, compuertas, personas y calendario. |
+| [Guía de estudio del proyecto](Produccion%20y%20finanzas/Guia_estudio_proyecto.pdf) | Todo el proyecto explicado desde cero: la empresa, IntegraMotion, las EDT, el VSM, la transformación digital, la simulación y el modelo financiero hoja por hoja, con preguntas difíciles y hoja de cifras. |
 
 ## 12.2. Oferta para la quesería
 
-La propuesta se ejecuta por etapas: diagnóstico de la planta (etapa 0); tinas automatizadas, medición de grasa en línea y SCADA, historiador y MES ligero de la quesería (etapa 1); hiladora-moldeadora continua, CIP del circuito de quesos y aprovechamiento del suero (etapa 2). La celda robotizada de paletizado queda como trabajo planeado. La oferta incluye el diseño de la interfaz con el ERP; la configuración del ERP y la ampliación a yogur y UHT no hacen parte de ella.
+La propuesta se ejecuta por etapas: diagnóstico de la planta y línea base (etapa 0); tinas instrumentadas, control de peso y metales, medición de grasa en línea y SCADA, historiador y MES ligero de la quesería (etapa 1); hiladora-moldeadora continua, CIP del circuito de quesos y venta del suero enfriado (etapa 2). Dos compuertas deciden con datos medidos si se compra la etapa 1 y la etapa 2. La celda robotizada de paletizado se diseña y se valida en RobotStudio, y su compra queda para una etapa 3.
 
-Cifras en millones de pesos constantes, tasa de descuento del 16 %:
+IntegraMotion contrata el trabajo en tres partes. Lo que paga Lácteos Fúquene es el costo de ingeniería del proyecto, en millones de pesos de 2026 sin IVA:
+
+| Contrato | Alcance | Valor |
+|---|---|---:|
+| Contrato principal (16 semanas del semestre 2026-2) | Los 19 paquetes de la EDT del proyecto (sección 3): diagnóstico de la etapa 0, diseño, programación y validación virtual de todo el proyecto, celda en RobotStudio, MES con estado de máquinas y OEE enlazado al ERP, configuración funcional del ERP, matriz de competencias del personal, balance de sólidos y costo por lote en el MES, modelo de mezcla óptima de los quesos y BOM cotizado | 223,4 |
+| Otrosí 1 (marzo y abril de 2027) | Implementación de la etapa 1: montaje supervisado, puesta en marcha, capacitación y soporte | 65,0 |
+| Otrosí 2 (2028) | Ingeniería de detalle e implementación de la etapa 2 | 87,6 |
+| **Costo de ingeniería del proyecto** | | **376,0** |
+
+Cada otrosí se firma solo si se supera la compuerta anterior, y cada compuerta se mide con cifras. Si la primera no se supera, la empresa paga el contrato principal, cuya ingeniería ya recibió, no compra equipos y pierde unos 49 millones con los ahorros conservadores de la etapa 0; comprar la etapa 1 sin esa información costaría 341. Si la segunda no se supera, la etapa 1 vale 286 millones por sí sola, y un prepago de unos 22 millones en 2027 mantiene su cobertura de la deuda en 1,2. IntegraMotion hace la ingeniería, la integración y la gerencia, y no vende equipos ni hace montajes: la instalación eléctrica, hidráulica y mecánica, los planos de detalle de obra y de reubicación de equipos, el tablero, la parametrización del ERP y la calibración acreditada los hacen terceros que contrata Lácteos Fúquene, con su costo dentro de la inversión, e IntegraMotion los especifica y supervisa. La inversión en equipos sale del BOM del proyecto: 53 ítems con tag, tomados de la instrumentación de la sección 7, del modelo físico ISA-88 y de la arquitectura ISA-95 de la sección 8, cada uno con precio, origen, instalación, paquete de la EDT y madurez del precio.
+
+La implementación va en 2027 y 2028 y el proyecto se evalúa hasta 2037. Cifras en millones de pesos constantes de 2026:
 
 | Indicador | Valor |
 |---|---:|
-| Inversión (años 0 y 1) | 1.039 |
-| Beneficio anual en régimen | 369 |
-| TIR del proyecto | 18,5 % |
-| VPN | 92 |
-| ROI a 10 años | 128 % |
-| Recuperación | 5,0 años |
-| TIR del inversionista (70 % financiado, 7 años, 14,1 % E.A.) | 31,1 % |
+| Costo total del proyecto (con imprevistos) | 1.689,3 |
+| Equipos del BOM que paga la quesería, sin imprevistos | 1.053,1 |
+| Beneficio anual en régimen | 538,5 |
+| Costos operativos nuevos al año | 95,9 |
+| Costo de capital del proyecto (pesos corrientes) | 14,7 % |
+| TIR del proyecto en pesos corrientes / constantes | 22,6 % / 17,6 % |
+| VPN | 503 |
+| VPN sin el crédito fiscal por innovación | 266 |
+| Recuperación / descontada | 4,8 / 6,7 años |
+| TIR del inversionista (65 % financiado, 7 años, 14,1 % E.A.) frente al 25 % exigido | 40,8 % |
+| Cobertura mínima del servicio de la deuda | 1,31 |
 
-La inversión se financia con la línea Impulso a la Productividad de Bancóldex. Ningún trabajador sale de la empresa: los operarios del hilado se capacitan y se reasignan. Los escenarios de riesgo y los supuestos están en el documento del caso y en el modelo financiero.
+El valor de la oferta sale sobre todo de la operación y del MES, no de la financiación: sin el crédito fiscal el VPN sigue en 266 millones. El MES resuelve la información en islas del diagnóstico (registra el estado de las máquinas, los paros y el OEE, también en los equipos antiguos, y publica la capacidad disponible en el ERP para que Ventas prometa con la capacidad real, y la orden de mantenimiento crea en el ERP la solicitud de compra del repuesto). Además, con una matriz de criterios se escogieron tres usos de sus datos: el balance de sólidos y humedad por lote (cuánto queso sale de cada litro), el costo real por lote y la mezcla óptima de los tres quesos por programación lineal, con los límites de un estudio de mercado de la región (más doble crema; poca mozzarella más, porque compite con la importada). La trazabilidad por lote queda como herramienta comercial para certificarse y entrar a cadenas exigentes. Cada hallazgo del diagnóstico de la quesería tiene su medida y su beneficio; las pérdidas de yogur y UHT que la oferta no resuelve (unos 529 millones al año a precio de venta) quedan como base de la ampliación a esas líneas. Nadie sale de la empresa. En la etapa 0, la matriz de competencias mostró un décimo hallazgo: los puestos se asignan por costumbre y a la planta le faltan dos que nadie cubre. Con la matriz y el método húngaro asignamos los dos operarios que libera la hiladora: uno al control nocturno de la incubación del yogur y otro al mantenimiento autónomo. El ERP es SAP Business One, que la empresa ya tiene: frente a Odoo, migrar costaría unos 160 millones y se pagaría en más de cinco años. Los beneficios pueden caer 25 % o la inversión subir 41 % antes de que el VPN llegue a cero. La inversión se financia con las líneas de Bancóldex para mipymes, con prenda sobre los equipos. Dentro de la oferta, IntegraMotion negocia la prenda con el banco y postula el proyecto ante Minciencias para el crédito fiscal (art. 256-1 del Estatuto Tributario). Toda empresa asume riesgos; la oferta decide antes cómo responder: el modelo tiene un plan de respuesta a los riesgos (señal, estrategia, responsable y recursos), una matriz que dice cómo se mide cada beneficio y qué no incluye, las condiciones de cada beneficio tributario y el control del contrato principal por valor ganado. Los escenarios y los supuestos están en el modelo financiero.
